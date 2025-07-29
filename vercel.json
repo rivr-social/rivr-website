@@ -1,3 +1,9 @@
 {
-  "name": "rivr-website-public"
+  "version": 2,
+  "alias": ["rivr.social"],
+  "build": {
+    "env": {
+      "NODE_ENV": "production"
+    }
+  }
 }
