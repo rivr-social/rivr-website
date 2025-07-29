@@ -1,0 +1,22 @@
+Starting Next.js development server on port 4000...
+
+> one-local-website@0.1.0 dev
+> next dev
+
+   ▲ Next.js 14.0.1
+   - Local:        http://localhost:3000
+
+ ✓ Ready in 3.5s
+[?25h
+Development server crashed. Restarting in 3 seconds...
+Starting Next.js development server on port 4000...
+
+> one-local-website@0.1.0 dev
+> next dev -p 4000
+
+   ▲ Next.js 14.0.1
+   - Local:        http://localhost:4000
+
+ ✓ Ready in 4.2s
+ ○ Compiling / ...
+ ✓ Compiled / in 15.4s (1221 modules)
