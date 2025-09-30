@@ -216,7 +216,7 @@ export default function LandingPage() {
                         'Groups': '/community#overview',
                         'Events': '/community#overview',
                         'Marketplace': '/features#sellers',
-                        'Community': '/community#overview'
+                        'Community': '/features#organizations'
                       };
                       
                       const destination = pageMap[item.title] || '/features#overview';
