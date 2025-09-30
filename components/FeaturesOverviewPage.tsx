@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { Box, Container, Typography, Button } from '@mui/material'
+import { Box, Container, Typography, Button, Grid, Card, CardContent } from '@mui/material'
 import LocalMembersPage from './LocalMembersPage'
 import EventHostsPage from './EventHostsPage'
 import SellersPage from './SellersPage'
@@ -241,19 +241,62 @@ export default function FeaturesOverviewPage() {
             Local businesses create the downtown experience of Boulder and play a key role in the health of our city by creating places for community to gather and connect. FlowPass is teaming up with values-aligned local businesses to incentivize local spending, community connection, and local resilience through FlowPass.
           </Typography>
           
-          <Typography variant="h5" sx={{ fontWeight: 'bold', mb: 2 }}>
-            Win Win Scenario
-          </Typography>
-          <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8 }}>
-            FlowPass Business Partners benefit from increased values-aligned customers visiting your locations, your business becoming a known staple in the city of Boulder through the local app of over 1,600 engaged users, and supporting the facilitation of in-person community connections.
-          </Typography>
-          
-          <Typography variant="h5" sx={{ fontWeight: 'bold', mb: 2 }}>
-            FlowPass Collaborators
-          </Typography>
-          <Typography variant="body1" sx={{ mb: 4, lineHeight: 1.8 }}>
-            FlowPass Subscribers benefit from being able to claim deals (discounts, BOGO, Happy Hour, to name a few) on their purchases at FlowPass business locations. Visiting FlowPass business locations also increases opportunity to run into friends who are also on the FlowPass app. FlowPass Subscribers, as well as all members of the app, benefit from knowing they are supporting values-aligned locally owned businesses by shopping at FlowPass Business Partners.
-          </Typography>
+          <Grid container spacing={4} sx={{ mb: 4 }}>
+            {[
+              {
+                title: 'Win Win Scenario',
+                description: 'FlowPass Business Partners benefit from increased values-aligned customers visiting your locations, your business becoming a known staple in the city of Boulder through the local app of over 1,600 engaged users, and supporting the facilitation of in-person community connections.'
+              },
+              {
+                title: 'FlowPass Collaborators',
+                description: 'FlowPass Subscribers benefit from being able to claim deals (discounts, BOGO, Happy Hour, to name a few) on their purchases at FlowPass business locations. Visiting FlowPass business locations also increases opportunity to run into friends who are also on the FlowPass app.'
+              }
+            ].map((feature, index) => (
+              <Grid item xs={12} sm={6} key={index}>
+                <Card
+                  sx={{
+                    height: '100%',
+                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05))',
+                    backdropFilter: 'blur(20px)',
+                    border: '1px solid rgba(255, 255, 255, 0.3)',
+                    borderTop: '1px solid rgba(255, 255, 255, 0.5)',
+                    borderLeft: '1px solid rgba(255, 255, 255, 0.5)',
+                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2), inset 0 2px 2px rgba(255, 255, 255, 0.1)',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    transition: 'all 0.3s ease',
+                    '&:before': {
+                      content: '""',
+                      position: 'absolute',
+                      top: 0,
+                      left: '-100%',
+                      width: '100%',
+                      height: '100%',
+                      background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)',
+                      transition: 'left 0.5s ease-in-out',
+                      zIndex: 1,
+                    },
+                    '&:hover': {
+                      transform: 'translateY(-8px) scale(1.02)',
+                      boxShadow: '0 16px 50px rgba(0, 0, 0, 0.25)',
+                      '&:before': {
+                        left: '100%',
+                      },
+                    },
+                  }}
+                >
+                  <CardContent sx={{ position: 'relative', zIndex: 2 }}>
+                    <Typography variant="h5" sx={{ fontWeight: 'bold', mb: 2 }}>
+                      {feature.title}
+                    </Typography>
+                    <Typography variant="body1" sx={{ lineHeight: 1.8 }}>
+                      {feature.description}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
           
           <Box sx={{ mt: 4 }}>
             <Button variant="contained" color="primary" size="large">

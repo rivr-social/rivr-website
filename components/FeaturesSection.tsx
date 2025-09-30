@@ -56,8 +56,41 @@ export default function FeaturesSection() {
           const IconComponent = feature.icon
           return (
             <Grid item xs={12} sm={6} md={3} key={feature.title}>
-              <Card onClick={() => handleOpenModal(feature)} sx={{ cursor: 'pointer' }} aria-labelledby={`feature-${feature.title}`}>
-                <CardContent>
+              <Card 
+                onClick={() => handleOpenModal(feature)} 
+                sx={{ 
+                  cursor: 'pointer',
+                  background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05))',
+                  backdropFilter: 'blur(20px)',
+                  border: '1px solid rgba(255, 255, 255, 0.3)',
+                  borderTop: '1px solid rgba(255, 255, 255, 0.5)',
+                  borderLeft: '1px solid rgba(255, 255, 255, 0.5)',
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2), inset 0 2px 2px rgba(255, 255, 255, 0.1)',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  transition: 'all 0.3s ease',
+                  '&:before': {
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    left: '-100%',
+                    width: '100%',
+                    height: '100%',
+                    background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)',
+                    transition: 'left 0.5s ease-in-out',
+                    zIndex: 1,
+                  },
+                  '&:hover': {
+                    transform: 'translateY(-8px) scale(1.02)',
+                    boxShadow: '0 16px 50px rgba(0, 0, 0, 0.25)',
+                    '&:before': {
+                      left: '100%',
+                    },
+                  },
+                }} 
+                aria-labelledby={`feature-${feature.title}`}
+              >
+                <CardContent sx={{ position: 'relative', zIndex: 2 }}>
                   <Box display="flex" alignItems="center" justifyContent="center" gap={2}>
                     <IconComponent color="primary" sx={{ fontSize: 60 }} />
                   </Box>
