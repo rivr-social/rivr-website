@@ -50,7 +50,7 @@ export default function HeroCarousel() {
   React.useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length)
-    }, 5000) // 5 seconds per slide
+    }, 8000) // 8 seconds per slide (slower transitions)
     return () => clearInterval(timer) // Cleanup on unmount
   }, [slides.length])
 

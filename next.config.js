@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Export a fully static site (no SSR/ISR)
+  output: 'export',
   images: {
+    // For static export, disable the Image Optimization API
+    unoptimized: true,
     domains: [
       'i.imgur.com',
       'via.placeholder.com',
