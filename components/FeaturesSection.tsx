@@ -61,7 +61,7 @@ export default function FeaturesSection() {
                 sx={{ 
                   cursor: 'pointer',
                   background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05))',
-                  backdropFilter: 'blur(20px)',
+                  backdropFilter: 'blur(10px)',
                   border: '1px solid rgba(255, 255, 255, 0.3)',
                   borderTop: '1px solid rgba(255, 255, 255, 0.5)',
                   borderLeft: '1px solid rgba(255, 255, 255, 0.5)',
@@ -81,7 +81,7 @@ export default function FeaturesSection() {
                     zIndex: 1,
                   },
                   '&:hover': {
-                    transform: 'translateY(-8px) scale(1.02)',
+                    transform: 'translateY(-4px)',
                     boxShadow: '0 16px 50px rgba(0, 0, 0, 0.25)',
                     '&:before': {
                       left: '100%',
