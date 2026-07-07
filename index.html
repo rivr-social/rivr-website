@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rivr — Introducing a new social coordination network</title>
+<meta name="description" content="Introducing Rivr, a new social coordination network to flow local and connect global. Discover a new way to connect, co-create and collaborate with your local community, all around the world.">
+<link rel="icon" href="https://app.rivr.social/rivr-emoji.png">
+<meta property="og:title" content="Introducing Rivr.">
+<meta property="og:description" content="A new social coordination network — to flow local and connect global.">
+<meta property="og:url" content="https://rivr.social">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  /* ————— Classic Apple print-ad system —————
+     Paper white, ink, ITC-Garamond-descendant serif for everything,
+     Helvetica for tiny spec labels, six-band rainbow as the ONE accent. */
+  :root{
+    --paper:#FBFAF7;
+    --ink:#1D1D1F;
+    --body:#44423D;
+    --faint:#8A877F;
+    --rule:#DEDBD2;
+    --r1:#61BB46; --r2:#FDB827; --r3:#F5821F; --r4:#E03A3E; --r5:#963D97; --r6:#009DDC;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--body);
+    font-family:"EB Garamond",Garamond,Georgia,serif;
+    font-size:19px;line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--ink);text-decoration:none}
+  a:focus-visible{outline:2px solid var(--r6);outline-offset:3px}
+  ::selection{background:var(--r2);color:var(--ink)}
+  .caption{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
+  .wrap{max-width:960px;margin:0 auto;padding:0 28px}
+  .rule{border:0;border-top:1px solid var(--rule);margin:0}
+
+  /* rainbow band — the one accent, used sparingly */
+  .rainbow{display:flex;height:6px;width:120px}
+  .rainbow span{flex:1}
+  .rainbow .b1{background:var(--r1)}.rainbow .b2{background:var(--r2)}.rainbow .b3{background:var(--r3)}
+  .rainbow .b4{background:var(--r4)}.rainbow .b5{background:var(--r5)}.rainbow .b6{background:var(--r6)}
+
+  /* ————— masthead ————— */
+  header{padding:26px 0}
+  .mast{display:flex;align-items:baseline;justify-content:space-between;gap:20px}
+  .wordmark{font-size:1.5rem;font-weight:500;letter-spacing:-.01em;color:var(--ink);display:flex;align-items:center;gap:10px}
+  .mast nav{display:flex;gap:26px;font-size:1rem}
+  .mast nav a{color:var(--body)}
+  .mast nav a:hover{color:var(--ink)}
+  .mast nav a.go{color:var(--ink);border-bottom:1px solid var(--ink)}
+
+  /* ————— hero: the print ad opener ————— */
+  .hero{padding:88px 0 72px;text-align:center}
+  .hero .rainbow{margin:0 auto 42px}
+  .kicker{font-style:italic;font-size:1.35rem;color:var(--faint);margin-bottom:18px}
+  h1{
+    color:var(--ink);font-weight:400;
+    font-size:clamp(2.5rem,6.2vw,4.4rem);
+    line-height:1.12;letter-spacing:-.02em;
+    max-width:19ch;margin:0 auto;
+  }
+  h1 em,.serif-em{font-style:italic}
+  .hero .lede{max-width:44ch;margin:30px auto 40px;font-size:1.25rem}
+  .cta{display:inline-block;font-size:1.1rem;color:var(--ink);border:1px solid var(--ink);padding:13px 34px;border-radius:2px;transition:background .15s ease,color .15s ease}
+  .cta:hover{background:var(--ink);color:var(--paper)}
+  .cta-quiet{display:inline-block;font-size:1.05rem;font-style:italic;margin-left:22px;border-bottom:1px solid var(--rule)}
+  .cta-quiet:hover{border-color:var(--ink)}
+
+  /* the rainbow wave — signature mark */
+  .wave-mark{margin:64px auto 0;display:block}
+
+  section{padding:78px 0}
+  .sect-head{text-align:center;margin-bottom:54px}
+  .sect-head .caption{display:block;margin-bottom:14px}
+  h2{color:var(--ink);font-weight:400;font-size:clamp(1.9rem,4vw,2.9rem);line-height:1.15;letter-spacing:-.015em}
+  .sub{font-style:italic;font-size:1.15rem;color:var(--faint);margin-top:12px}
+
+  /* ————— long-copy columns, the classic Apple ad body ————— */
+  .longcopy{column-count:2;column-gap:44px;column-rule:1px solid var(--rule);text-align:justify;hyphens:auto;font-size:1.02rem}
+  .longcopy p{margin-bottom:1em}
+  .longcopy p:first-child::first-letter{font-size:3.2em;float:left;line-height:.82;padding-right:8px;color:var(--ink)}
+  .pull{font-style:italic;font-size:1.5rem;color:var(--ink);text-align:center;max-width:34ch;margin:0 auto 46px;line-height:1.4}
+
+  /* ————— spec sheet (features / memberships) ————— */
+  .spec{border-top:1px solid var(--rule)}
+  .spec-row{display:grid;grid-template-columns:230px 1fr;gap:28px;padding:22px 4px;border-bottom:1px solid var(--rule)}
+  .spec-row dt{color:var(--ink);font-size:1.2rem}
+  .spec-row dd{font-size:1.02rem}
+
+  /* four-column feature grid, print style */
+  .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:36px}
+  .grid4 .cell .caption{display:block;color:var(--ink);margin-bottom:12px;border-bottom:1px solid var(--ink);padding-bottom:8px}
+  .grid4 .cell ul{list-style:none}
+  .grid4 .cell li{padding:7px 0;border-bottom:1px solid var(--rule);font-size:.98rem}
+  .grid4 .cell li:last-child{border-bottom:0}
+
+  /* hello moment */
+  .hello{text-align:center;padding:96px 0}
+  .hello .script{font-size:clamp(3rem,9vw,6rem);font-style:italic;color:var(--ink);letter-spacing:-.02em}
+  .hello .under{margin-top:16px;font-size:1.15rem;color:var(--faint);font-style:italic}
+
+  /* coming soon */
+  .soon{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 34px;font-style:italic;font-size:1.12rem}
+  .soon span{color:var(--body)}
+  .soon span::before{content:"· ";color:var(--faint)}
+  .soon span:first-child::before{content:""}
+
+  /* orgs */
+  .orgs{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 30px;font-variant:small-caps;letter-spacing:.06em;font-size:1.05rem;color:var(--body)}
+
+  /* closing banner */
+  .closing{text-align:center;padding:96px 0 110px}
+  .closing h2{font-size:clamp(2.1rem,4.6vw,3.3rem);max-width:22ch;margin:0 auto 16px}
+  .closing .sub{margin-bottom:38px}
+
+  footer{border-top:1px solid var(--rule);padding:34px 0 60px;font-size:.95rem;color:var(--faint)}
+  .foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center}
+  .foot a{color:var(--body)}
+  .foot a:hover{color:var(--ink)}
+  .foot-links{display:flex;gap:22px;flex-wrap:wrap}
+
+  @media (max-width:760px){
+    .mast nav{gap:16px;font-size:.95rem}
+    .mast nav .hide-sm{display:none}
+    .longcopy{column-count:1;column-rule:none}
+    .grid4{grid-template-columns:1fr 1fr;gap:28px}
+    .spec-row{grid-template-columns:1fr;gap:8px}
+    .cta-quiet{display:block;margin:18px auto 0;width:max-content}
+  }
+  @media (max-width:460px){.grid4{grid-template-columns:1fr}}
+  @media (prefers-reduced-motion:no-preference){
+    .hero > *{animation:rise .7s ease both}
+    .hero .lede{animation-delay:.12s}.hero .cta,.hero .cta-quiet{animation-delay:.2s}.hero .wave-mark{animation-delay:.3s}
+    @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  }
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <div class="mast">
+    <a class="wordmark" href="/" aria-label="Rivr home">
+      <svg width="30" height="20" viewBox="0 0 34 24" aria-hidden="true">
+        <path d="M2 18 C 8 4, 14 4, 17 12 S 26 20, 32 6" fill="none" stroke="#1D1D1F" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      Rivr.
+    </a>
+    <nav aria-label="Primary">
+      <a class="hide-sm" href="#features">Features</a>
+      <a class="hide-sm" href="#membership">Membership</a>
+      <a class="hide-sm" href="#vision">Vision</a>
+      <a href="https://app.rivr.social/docs">Docs</a>
+      <a class="go" href="https://app.rivr.social">Get in the Rivr</a>
+    </nav>
+  </div>
+</header>
+<hr class="rule wrap">
+
+<main>
+  <!-- ————— the ad ————— -->
+  <section class="hero wrap">
+    <div class="rainbow" aria-hidden="true"><span class="b1"></span><span class="b2"></span><span class="b3"></span><span class="b4"></span><span class="b5"></span><span class="b6"></span></div>
+    <p class="kicker">Introducing Rivr.</p>
+    <h1>A new <em>social</em> coordination network — to <em>flow</em> local and <em>connect</em> global.</h1>
+    <p class="lede">Discover a new way to connect, co-create and collaborate with
+    your local community, all around the world.</p>
+    <div>
+      <a class="cta" href="https://app.rivr.social">Get in the Rivr</a>
+      <a class="cta-quiet" href="#vision">Read why we built it&nbsp;&rarr;</a>
+    </div>
+    <!-- signature: the RIVR wave in the six classic bands -->
+    <svg class="wave-mark" width="220" height="64" viewBox="0 0 110 32" aria-label="The Rivr wave">
+      <g fill="none" stroke-width="3.4" stroke-linecap="round">
+        <path d="M4 22 C 22 2, 40 2, 52 14 S 84 28, 106 8" stroke="#61BB46" transform="translate(0,-7)"/>
+        <path d="M4 22 C 22 2, 40 2, 52 14 S 84 28, 106 8" stroke="#FDB827" transform="translate(0,-3.5)"/>
+        <path d="M4 22 C 22 2, 40 2, 52 14 S 84 28, 106 8" stroke="#F5821F"/>
+        <path d="M4 22 C 22 2, 40 2, 52 14 S 84 28, 106 8" stroke="#E03A3E" transform="translate(0,3.5)"/>
+        <path d="M4 22 C 22 2, 40 2, 52 14 S 84 28, 106 8" stroke="#963D97" transform="translate(0,7)"/>
+        <path d="M4 22 C 22 2, 40 2, 52 14 S 84 28, 106 8" stroke="#009DDC" transform="translate(0,10.5)"/>
+      </g>
+    </svg>
+  </section>
+
+  <hr class="rule wrap">
+
+  <!-- ————— explore what we offer ————— -->
+  <section class="wrap">
+    <div class="sect-head">
+      <span class="caption">Explore what we offer</span>
+      <h2>The true nourishing things.</h2>
+    </div>
+    <p class="pull">&ldquo;The foundation of our mission has always been to connect
+    people with the things humans really need.&rdquo;</p>
+    <dl class="spec">
+      <div class="spec-row"><dt>Connect</dt><dd>Find your community and enrich your life — neighbors, groups, and gatherings, all in one place.</dd></div>
+      <div class="spec-row"><dt>Discover</dt><dd>See what's happening around you: events, offerings, requests, and the people behind them.</dd></div>
+      <div class="spec-row"><dt>Share &amp; receive</dt><dd>Offer what you have and ask for what you need, in a marketplace built for mutual benefit.</dd></div>
+      <div class="spec-row"><dt>Skill development</dt><dd>Badges with real trainings — learn from your community and show what you can do.</dd></div>
+      <div class="spec-row"><dt>Governance</dt><dd>Groups with real tools for deciding together: memberships, roles, treasuries, and a voice in how.</dd></div>
+    </dl>
+  </section>
+
+  <!-- ————— in-app features ————— -->
+  <section class="wrap" id="features">
+    <div class="sect-head">
+      <span class="caption">The in-app features</span>
+      <h2>A technology that connects us in new and remembered ways.</h2>
+    </div>
+    <div class="grid4">
+      <div class="cell">
+        <span class="caption">Events &amp; Calendar</span>
+        <ul><li>Discover &amp; connect</li><li>Stay organized</li><li>Create &amp; promote</li></ul>
+      </div>
+      <div class="cell">
+        <span class="caption">Resource &amp; Service Sharing</span>
+        <ul><li>Share what you have</li><li>Get what you need</li><li>Build community</li></ul>
+      </div>
+      <div class="cell">
+        <span class="caption">Community Directory</span>
+        <ul><li>Connect with your neighbors</li><li>Showcase your skills</li><li>Find local experts</li></ul>
+      </div>
+      <div class="cell">
+        <span class="caption">Groups &amp; Governance</span>
+        <ul><li>Join and build community</li><li>Know what's happening</li><li>Have a voice in how</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ————— hello, neighbor ————— -->
+  <section class="hello wrap" aria-label="hello, neighbor">
+    <div class="script">hello, neighbor.</div>
+    <p class="under">Every community on Rivr runs its own sovereign home — and they all flow together.</p>
+  </section>
+
+  <hr class="rule wrap">
+
+  <!-- ————— membership ————— -->
+  <section class="wrap" id="membership">
+    <div class="sect-head">
+      <span class="caption">Membership</span>
+      <h2>A Rivr for every way you take part.</h2>
+    </div>
+    <dl class="spec">
+      <div class="spec-row"><dt>Collaborator</dt><dd>Join the flow: post, gather, share, and take part in your local commons.</dd></div>
+      <div class="spec-row"><dt>Host</dt><dd>Run events and gatherings — ticketing, RSVPs, and calendars included.</dd></div>
+      <div class="spec-row"><dt>Seller</dt><dd>Offer goods and services in the community marketplace, with real settlement.</dd></div>
+      <div class="spec-row"><dt>Organization</dt><dd>Bring your org into the network with its own groups, projects, and treasury.</dd></div>
+      <div class="spec-row"><dt>Stewardship</dt><dd>Care for a place. Locale and bioregion instances for the land itself.</dd></div>
+      <div class="spec-row"><dt>On team</dt><dd>Build the Rivr with us — the network is a commons, and so is the work.</dd></div>
+    </dl>
+  </section>
+
+  <!-- ————— coming soon ————— -->
+  <section class="wrap">
+    <div class="sect-head">
+      <span class="caption">Up-coming features</span>
+      <h2>And we're just getting started.</h2>
+    </div>
+    <p class="soon">
+      <span>Interactive map</span><span>Extended profiles</span><span>Governance &amp; polling</span><span>Family group systems</span><span>So much more</span>
+    </p>
+  </section>
+
+  <hr class="rule wrap">
+
+  <!-- ————— the long-copy vision ad ————— -->
+  <section class="wrap" id="vision">
+    <div class="sect-head">
+      <span class="caption">The vision</span>
+      <h2>We are transforming <em>how</em> we social network.</h2>
+      <p class="sub">We know we can only be truly successful together. So we've built
+      the technology to support us all in our local and mutual thriving.</p>
+    </div>
+    <div class="longcopy">
+      <p>Rivr is more than just an app. It is a technology to enhance connection and
+      stewardship in our local bio-regions, worldwide. Whether you're offering your
+      hands or providing a service, hosting a gathering or joining an event,
+      stewarding a community or simply seeking connection, the Rivr app makes it
+      seamless to give and receive what we want and need — all within a living web
+      of mutual support, all for the prayer of our collective wellness, and for the
+      stewardship of this Earth.</p>
+      <p>At the heart of Rivr lies a profound belief: that the essence of our
+      existence lives not in competition, but in collaboration. We know, to truly
+      be well as a collective — as a culture, as a bio-region, as a world — we must
+      put the earth, the people, and our hearts in the center. It's time for us to
+      coordinate in ways we've been yearning for; to be well together in ways we've
+      never seen before; to live life beautifully; to weave and honor the rich soil
+      of land and love, for all those here and for the next generations to come.</p>
+      <p>And so Rivr is federated. Every neighborhood, group, and bioregion runs its
+      own sovereign home — its own domain, its own data, its own rules — and they
+      all flow together into one river, so neighbors can find each other across
+      communities. You can leave any time and take everything with you. That's the
+      point. Together, we are destined for greatness. Our vision is a collective
+      vision.</p>
+    </div>
+  </section>
+
+  <!-- ————— affiliated orgs ————— -->
+  <section class="wrap">
+    <div class="sect-head">
+      <span class="caption">Affiliated orgs</span>
+    </div>
+    <p class="orgs">Open Civics &middot; Mystery Works &middot; Colony Riverside &middot; Regen Hub &middot; Unify &middot; The Coffee Stand</p>
+  </section>
+
+  <hr class="rule wrap">
+
+  <!-- ————— closing ————— -->
+  <section class="closing wrap">
+    <div class="rainbow" style="margin:0 auto 36px" aria-hidden="true"><span class="b1"></span><span class="b2"></span><span class="b3"></span><span class="b4"></span><span class="b5"></span><span class="b6"></span></div>
+    <h2>The best <em>way</em> to know the Rivr is to get <em>in</em> it.</h2>
+    <p class="sub">We welcome your feedback and inspirations along the way.</p>
+    <a class="cta" href="https://app.rivr.social">Get in the Rivr</a>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>Rivr — a cooperative commons &middot; <a href="mailto:admin@rivr.social">admin@rivr.social</a></span>
+    <nav class="foot-links" aria-label="Footer">
+      <a href="https://app.rivr.social/docs">Docs</a>
+      <a href="https://app.rivr.social/docs/api">API</a>
+      <a href="https://app.rivr.social/explore">Explore</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/privacy.html">Privacy</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+services:
+  rivr-landing:
+    image: nginx:1.27-alpine
+    container_name: pmdl_rivr_landing
+    restart: unless-stopped
+    volumes:
+      - ./html:/usr/share/nginx/html:ro
+    networks:
+      - proxy-external
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.rivr-landing.rule=Host(`rivr.social`) || Host(`www.rivr.social`)"
+      - "traefik.http.routers.rivr-landing.entrypoints=websecure"
+      - "traefik.http.routers.rivr-landing.tls=true"
+      - "traefik.http.routers.rivr-landing.tls.certresolver=letsencrypt"
+      - "traefik.http.services.rivr-landing.loadbalancer.server.port=80"
+      - "com.centurylinklabs.watchtower.enable=false"
+networks:
+  proxy-external:
+    external: true
+    name: pmdl_proxy-external
