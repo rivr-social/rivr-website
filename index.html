@@ -119,6 +119,9 @@
   .closing h2{font-size:clamp(2.1rem,4.6vw,3.3rem);max-width:22ch;margin:0 auto 16px}
   .closing .sub{margin-bottom:38px}
 
+  .sub-form{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .sub-form input{font-family:inherit;font-size:1rem;padding:12px 14px;border:1px solid var(--rule);border-radius:2px;background:#fff;color:var(--ink);min-width:180px}
+  .sub-form input:focus{outline:none;border-color:var(--ink)}
   footer{border-top:1px solid var(--rule);padding:34px 0 60px;font-size:.95rem;color:var(--faint)}
   .foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center}
   .foot a{color:var(--body)}
@@ -155,7 +158,8 @@
       <a class="hide-sm" href="#features">Features</a>
       <a class="hide-sm" href="#membership">Membership</a>
       <a class="hide-sm" href="#vision">Vision</a>
-      <a href="https://app.rivr.social/docs">Docs</a>
+      <a class="hide-sm" href="mailto:admin@rivr.social">Contact</a>
+      <a href="https://app.rivr.social/login">Login</a>
       <a class="go" href="https://app.rivr.social">Get in the Rivr</a>
     </nav>
   </div>
@@ -256,6 +260,20 @@
     </dl>
   </section>
 
+  <!-- ————— interactive map ————— -->
+  <section class="wrap">
+    <div class="sect-head">
+      <span class="caption">Interactive map</span>
+      <h2>Your community, <em>mapped.</em></h2>
+    </div>
+    <dl class="spec">
+      <div class="spec-row"><dt>Explore your surroundings</dt><dd>See the people, places, events, and offerings around you, on a living map of your locale.</dd></div>
+      <div class="spec-row"><dt>Navigate with ease</dt><dd>From your block to your bioregion — pan out from a neighborhood to the basin it belongs to.</dd></div>
+      <div class="spec-row"><dt>Visualize connections</dt><dd>Watch the web of mutual support take shape: who's sharing, who's gathering, what's flowing.</dd></div>
+    </dl>
+    <p style="text-align:center;margin-top:34px"><a class="cta-quiet" style="margin-left:0" href="https://app.rivr.social/map">Get started now&nbsp;&rarr;</a></p>
+  </section>
+
   <!-- ————— coming soon ————— -->
   <section class="wrap">
     <div class="sect-head">
@@ -263,7 +281,7 @@
       <h2>And we're just getting started.</h2>
     </div>
     <p class="soon">
-      <span>Interactive map</span><span>Extended profiles</span><span>Governance &amp; polling</span><span>Family group systems</span><span>So much more</span>
+      <span>In-app messaging</span><span>Extended profiles</span><span>Governance &amp; polling</span><span>Family group systems</span><span>So much more</span>
     </p>
   </section>
 
@@ -296,9 +314,15 @@
       own sovereign home — its own domain, its own data, its own rules — and they
       all flow together into one river, so neighbors can find each other across
       communities. You can leave any time and take everything with you. That's the
-      point. Together, we are destined for greatness. Our vision is a collective
-      vision.</p>
+      point.</p>
     </div>
+  </section>
+
+  <!-- ————— the collective statement ————— -->
+  <section class="wrap" style="text-align:center;padding-top:20px">
+    <p class="sub" style="margin-bottom:10px">Together, we are destined for greatness.</p>
+    <h2>Our vision is a <em>collective</em> vision.</h2>
+    <p style="margin-top:26px"><a class="cta-quiet" style="margin-left:0" href="https://app.rivr.social/explore">Meet the team&nbsp;&rarr;</a></p>
   </section>
 
   <!-- ————— affiliated orgs ————— -->
@@ -317,6 +341,25 @@
     <h2>The best <em>way</em> to know the Rivr is to get <em>in</em> it.</h2>
     <p class="sub">We welcome your feedback and inspirations along the way.</p>
     <a class="cta" href="https://app.rivr.social">Get in the Rivr</a>
+    <p style="margin-top:22px">
+      <a class="cta-quiet" style="margin-left:0" href="https://demo.rivr.social">See the demo&nbsp;&rarr;</a>
+      <a class="cta-quiet" href="https://beta.rivr.social">Try the beta&nbsp;&rarr;</a>
+    </p>
+  </section>
+
+  <!-- ————— subscribe ————— -->
+  <section class="wrap" style="padding-top:0">
+    <div class="sect-head" style="margin-bottom:30px">
+      <span class="caption">Subscribe</span>
+      <h2 style="font-size:1.7rem">Sign up to receive news and updates.</h2>
+    </div>
+    <form class="sub-form" onsubmit="event.preventDefault();var f=this;location.href='mailto:admin@rivr.social?subject='+encodeURIComponent('Subscribe: '+f.fname.value+' '+f.lname.value)+'&body='+encodeURIComponent(f.email.value+' would like to receive Rivr news and updates.');">
+      <input name="fname" type="text" placeholder="First Name" aria-label="First name" required>
+      <input name="lname" type="text" placeholder="Last Name" aria-label="Last name" required>
+      <input name="email" type="email" placeholder="Email Address" aria-label="Email address" required>
+      <button class="cta" type="submit" style="cursor:pointer;background:none;font-family:inherit">Sign Up</button>
+    </form>
+    <p style="text-align:center;margin-top:14px" class="caption">We respect your privacy.</p>
   </section>
 </main>
 
