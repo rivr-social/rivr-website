@@ -1,0 +1,1 @@
+window.RIVR_MAPBOX_EMBED_URL = "";
