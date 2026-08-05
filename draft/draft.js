@@ -10,7 +10,7 @@
         { label: "In community", title: "Make every contribution count.", copy: "Your skills and follow-through become visible across the groups and projects you join.", outcomes: ["Carry trust forward", "Reveal shared capacity", "Make belonging active"] },
         { label: "Across the network", title: "Turn participation into local power.", copy: "Give more people a real path into civic and economic life, wherever they live.", outcomes: ["Lower the barrier to action", "Strengthen interdependence", "Connect places without flattening them"] }
       ],
-      stack: [{ name: "Facebook", cost: "$0 base" }, { name: "Instagram", cost: "$0 base" }, { name: "LinkedIn", cost: "$0 basic" }, { name: "Meetup", cost: "$0 member" }], stackTotal: 0, savings: null
+      stack: [{ name: "Facebook", cost: "$0 base" }, { name: "Instagram", cost: "$0 base" }, { name: "LinkedIn", cost: "$0 basic" }, { name: "Meetup", cost: "$0 member" }, { name: "Upwork", cost: "0–15% freelancer fee" }, { name: "Fiverr", cost: "20% of seller earnings" }], stackTotal: 0, savings: null
     },
     host: {
       number: "02", name: "Host", segment: "Conveners + event makers", invitation: "Fill the room. Keep the community growing after it empties.", capability: "Ticket + convene", monthly: 24.06, yearly: 222.72, url: "https://app.rivr.social/products/membership-host",
@@ -30,7 +30,7 @@
         { label: "In community", title: "Keep more value moving nearby.", copy: "Put your offering beside the people, projects, and needs that give it meaning.", outcomes: ["Reach through shared context", "Build durable customers", "Strengthen local exchange"] },
         { label: "Across the network", title: "Connect resilient local markets.", copy: "Help independent sellers grow across places without surrendering their relationships.", outcomes: ["Link values-aligned markets", "Diversify local economies", "Keep commerce accountable"] }
       ],
-      stack: [{ name: "Square Plus", cost: "$49" }, { name: "Etsy", cost: "sales fees" }, { name: "Instagram", cost: "$0 base" }], stackTotal: 49, savings: 24.94
+      stack: [{ name: "Square Plus", cost: "$49" }, { name: "Etsy", cost: "sales fees" }, { name: "Craigslist", cost: "$0 in most categories" }, { name: "Instagram", cost: "$0 base" }], stackTotal: 49, savings: 24.94
     },
     provider: {
       number: "04", name: "Provider", segment: "Operators who host + sell", invitation: "Run events, services, and sales from one trusted presence.", capability: "Host + sell", monthly: 35.06, yearly: 304.72, url: "https://app.rivr.social/products/membership-provider",
@@ -40,7 +40,7 @@
         { label: "In community", title: "Become a reliable community anchor.", copy: "Give people more ways to learn, gather, buy, and return.", outcomes: ["Connect learning and exchange", "Create more ways in", "Grow around your practice"] },
         { label: "Across the network", title: "Make independent work infrastructure.", copy: "Carry knowledge, care, and economic life between communities without a central gatekeeper.", outcomes: ["Support viable practices", "Connect providers across places", "Distribute knowledge and agency"] }
       ],
-      stack: [{ name: "Square Plus", cost: "$49" }, { name: "Luma Plus", cost: "$59" }, { name: "Etsy + Instagram", cost: "fees + ads" }], stackTotal: 108, savings: 72.94
+      stack: [{ name: "Square Plus", cost: "$49" }, { name: "Calendly", cost: "$10" }, { name: "Luma Plus", cost: "$59" }, { name: "Upwork", cost: "0–15% freelancer fee" }, { name: "Fiverr", cost: "20% of seller earnings" }, { name: "Patreon", cost: "10% + processing" }], stackTotal: 118, savings: 82.94
     },
     organization: {
       number: "05", name: "Organization", segment: "Teams + co-ops + programs", invitation: "Coordinate the mission, the money, and the work in one place.", capability: "Coordinate + pay", monthly: 46.06, yearly: 391.72, url: "https://app.rivr.social/products/membership-organizer",
@@ -50,20 +50,22 @@
         { label: "In community", title: "Make responsibility and money legible.", copy: "Let members see what needs doing, how decisions happen, and where resources move.", outcomes: ["Distribute responsibility", "Clarify governance", "Build durable memory"] },
         { label: "Across the network", title: "Collaborate without merging.", copy: "Work across organizations while each one keeps its identity, authority, and context.", outcomes: ["Coordinate across boundaries", "Preserve local agency", "Build plural infrastructure"] }
       ],
-      stack: [{ name: "Asana · 5 seats", cost: "$54.95" }, { name: "Slack · 5 seats", cost: "$36.25" }, { name: "Square Payroll · 5", cost: "$65" }, { name: "Square Plus", cost: "$49" }, { name: "Shopify", cost: "$29" }, { name: "Luma Plus", cost: "$59" }], stackTotal: 293.20, savings: 247.14
+      stack: [{ name: "Asana · 5 seats", cost: "$54.95" }, { name: "Slack · 5 seats", cost: "$36.25" }, { name: "Google Workspace · 5", cost: "$35" }, { name: "Square Payroll · 5", cost: "$65" }, { name: "Square Plus", cost: "$49" }, { name: "Shopify", cost: "$29" }, { name: "Luma Plus", cost: "$59" }, { name: "Upwork + Fiverr", cost: "variable hiring fees" }], stackTotal: 328.20, savings: 282.14
     }
   };
 
   var comparisonMatrices = {
     collaborator: {
-      columns: ["Rivr", "Facebook", "Instagram", "LinkedIn", "Meetup"],
+      columns: ["Rivr", "Facebook", "Instagram", "LinkedIn", "Meetup", "Upwork", "Fiverr"],
       rows: [
-        ["Portable identity", "yes", "yes", "yes", "yes", "some"],
-        ["Groups + local events", "yes", "yes", "some", "some", "yes"],
-        ["Messaging", "yes", "yes", "yes", "yes", "some"],
-        ["Gigs + project roles", "yes", "some", "some", "yes", "no"],
-        ["Contribution record", "yes", "no", "no", "some", "no"],
-        ["Cross-org context", "yes", "no", "no", "no", "no"]
+        ["Portable identity", "yes", "yes", "yes", "yes", "some", "yes", "yes"],
+        ["Groups + local events", "yes", "yes", "some", "some", "yes", "no", "no"],
+        ["Messaging", "yes", "yes", "yes", "yes", "some", "yes", "yes"],
+        ["Gigs + project roles", "yes", "some", "some", "yes", "no", "yes", "yes"],
+        ["Offer skills + services", "yes", "some", "yes", "some", "no", "yes", "yes"],
+        ["Managed paid work", "yes", "no", "no", "some", "no", "yes", "yes"],
+        ["Contribution record", "yes", "no", "no", "some", "no", "some", "some"],
+        ["Cross-org context", "yes", "no", "no", "no", "no", "no", "no"]
       ]
     },
     host: {
@@ -78,40 +80,44 @@
       ]
     },
     seller: {
-      columns: ["Rivr", "Etsy", "eBay", "Amazon", "Shopify", "Square", "Instagram"],
+      columns: ["Rivr", "Etsy", "eBay", "Amazon", "Craigslist", "Shopify", "Square", "Instagram"],
       rows: [
-        ["Storefront + listings", "yes", "yes", "yes", "yes", "yes", "yes", "some"],
-        ["Marketplace discovery", "yes", "yes", "yes", "yes", "some", "some", "yes"],
-        ["Inventory + orders", "yes", "yes", "yes", "yes", "yes", "yes", "some"],
-        ["Buyer messaging", "yes", "yes", "yes", "some", "some", "yes", "yes"],
-        ["Online payment", "yes", "yes", "yes", "yes", "yes", "yes", "some"],
-        ["Tap-to-pay POS", "pay", "no", "no", "no", "yes", "yes", "no"],
-        ["Community context", "yes", "some", "no", "no", "no", "some", "some"]
+        ["Storefront + listings", "yes", "yes", "yes", "yes", "yes", "yes", "yes", "some"],
+        ["Marketplace discovery", "yes", "yes", "yes", "yes", "yes", "some", "some", "yes"],
+        ["Inventory + orders", "yes", "yes", "yes", "yes", "no", "yes", "yes", "some"],
+        ["Buyer messaging", "yes", "yes", "yes", "some", "yes", "some", "yes", "yes"],
+        ["Online payment", "yes", "yes", "yes", "yes", "no", "yes", "yes", "some"],
+        ["Tap-to-pay POS", "pay", "no", "no", "no", "no", "yes", "yes", "no"],
+        ["Community context", "yes", "some", "no", "no", "some", "no", "some", "some"]
       ]
     },
     provider: {
-      columns: ["Rivr", "Square", "Luma", "Eventbrite", "Etsy", "Instagram"],
+      columns: ["Rivr", "Square", "Calendly", "Upwork", "Fiverr", "Luma", "Eventbrite", "Patreon", "Instagram"],
       rows: [
-        ["Services + bookings", "yes", "yes", "some", "some", "some", "some"],
-        ["Events + tickets", "yes", "some", "yes", "yes", "no", "some"],
-        ["Products + orders", "yes", "yes", "no", "no", "yes", "some"],
-        ["Online + tap-to-pay", "pay", "yes", "some", "some", "no", "no"],
-        ["Audience messaging", "yes", "yes", "yes", "yes", "yes", "yes"],
-        ["One customer context", "yes", "some", "some", "some", "some", "some"]
+        ["Services + bookings", "yes", "yes", "yes", "yes", "yes", "some", "some", "some", "some"],
+        ["Freelance discovery", "yes", "some", "no", "yes", "yes", "no", "no", "some", "some"],
+        ["Events + tickets", "yes", "some", "no", "no", "no", "yes", "yes", "some", "some"],
+        ["Products + orders", "yes", "yes", "no", "no", "no", "no", "no", "some", "some"],
+        ["Recurring memberships", "yes", "some", "no", "no", "no", "some", "no", "yes", "some"],
+        ["Online + tap-to-pay", "pay", "yes", "some", "some", "some", "some", "some", "some", "no"],
+        ["Audience messaging", "yes", "yes", "some", "yes", "yes", "yes", "yes", "yes", "yes"],
+        ["Projects + contribution", "yes", "no", "no", "some", "some", "no", "no", "no", "some"]
       ]
     },
     organization: {
-      columns: ["Rivr", "Facebook", "Discord", "Asana", "Slack", "Square", "Shopify", "Eventbrite"],
+      columns: ["Rivr", "Facebook", "Discord", "Upwork", "Fiverr", "Asana", "Google Workspace", "Slack", "Square", "Shopify", "Patreon", "Eventbrite"],
       rows: [
-        ["Social community", "yes", "yes", "yes", "some", "yes", "some", "some", "some"],
-        ["Projects + paid work", "yes", "no", "no", "yes", "some", "some", "no", "no"],
-        ["Shared docs + knowledge", "yes", "some", "some", "yes", "some", "no", "no", "no"],
-        ["Governance + decisions", "yes", "some", "some", "no", "some", "no", "no", "no"],
-        ["Subgroup treasuries", "yes", "no", "no", "no", "no", "no", "no", "no"],
-        ["Project spend cards", "cards", "no", "no", "no", "no", "no", "no", "no"],
-        ["Events + ticketing", "yes", "yes", "yes", "some", "some", "no", "no", "yes"],
-        ["Storefront + POS", "pay", "some", "no", "no", "no", "yes", "yes", "no"],
-        ["Cross-org coordination", "yes", "no", "some", "some", "some", "no", "no", "no"]
+        ["Social community", "yes", "yes", "yes", "some", "some", "some", "yes", "yes", "some", "some", "yes", "some"],
+        ["Find + pay project talent", "yes", "some", "some", "yes", "yes", "some", "some", "some", "some", "no", "some", "no"],
+        ["Projects + task ownership", "yes", "no", "no", "yes", "some", "yes", "some", "some", "no", "no", "no", "no"],
+        ["Shared docs + knowledge", "yes", "some", "some", "some", "some", "yes", "yes", "some", "no", "no", "some", "no"],
+        ["Governance + decisions", "yes", "some", "some", "no", "no", "no", "some", "some", "no", "no", "some", "no"],
+        ["Subgroup treasuries", "yes", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no"],
+        ["Project spend cards", "cards", "no", "no", "no", "no", "no", "no", "no", "some", "no", "no", "no"],
+        ["Memberships + dues", "yes", "some", "some", "no", "no", "no", "no", "no", "some", "some", "yes", "no"],
+        ["Events + ticketing", "yes", "yes", "yes", "no", "no", "some", "yes", "some", "no", "no", "some", "yes"],
+        ["Storefront + POS", "pay", "some", "no", "no", "no", "no", "no", "no", "yes", "yes", "some", "no"],
+        ["Cross-org coordination", "yes", "no", "some", "no", "no", "some", "some", "some", "no", "no", "no", "no"]
       ]
     }
   };
@@ -124,6 +130,28 @@
   var furthestAltitude = 0;
   var root = document.documentElement;
   var reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+
+  var brandAssets = {
+    facebook: "facebook.png", instagram: "instagram.png", linkedin: "linkedin.png", meetup: "meetup.png",
+    upwork: "upwork.png", fiverr: "fiverr.png", luma: "luma.jpg", eventbrite: "eventbrite.png",
+    etsy: "etsy.png", ebay: "ebay.png", amazon: "amazon.png", craigslist: "craigslist.png",
+    shopify: "shopify.png", square: "square.png", calendly: "calendly.png", patreon: "patreon.png",
+    discord: "discord.png", asana: "asana.png", slack: "slack.png", google: "google-workspace.png"
+  };
+
+  function brandKey(label) {
+    var value = String(label).toLowerCase();
+    if (value.indexOf("rivr") !== -1) return "rivr";
+    if (value.indexOf("google workspace") !== -1) return "google";
+    if (value.indexOf("square") !== -1) return "square";
+    return Object.keys(brandAssets).find(function (key) { return value.indexOf(key) !== -1; }) || "";
+  }
+
+  function brandLabel(label) {
+    var key = brandKey(label);
+    var source = key === "rivr" ? "/assets/rivr-symbol-dark.png" : key ? "/assets/brands/" + brandAssets[key] : "";
+    return '<span class="brand-label">' + (source ? '<img src="' + source + '" alt="" width="20" height="20">' : '') + '<span>' + label + '</span></span>';
+  }
 
   function money(value) { return "$" + Number(value).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
 
@@ -148,7 +176,7 @@
     if (!deck) return;
     deck.innerHTML = order.map(function (key) {
       var p = products[key];
-      return '<button class="product-card product-' + key + '" type="button" data-select-product="' + key + '" aria-haspopup="dialog"><span class="product-card-top"><span class="product-icon">' + icon(key) + '</span></span><small>' + p.segment + '</small><strong>' + p.name + '</strong><p>' + p.invitation + '</p>' + currentPrice(p) + '<b>Open your path ↗</b></button>';
+      return '<button class="product-card product-' + key + ' liquid-glass" type="button" data-select-product="' + key + '" aria-haspopup="dialog"><span class="liquid-glass-distortion"></span><span class="liquid-glass-tint"></span><span class="liquid-glass-shine"></span><span class="product-card-top"><span class="product-icon">' + icon(key) + '</span></span><small>' + p.segment + '</small><strong>' + p.name + '</strong><p>' + p.invitation + '</p>' + currentPrice(p) + '<b>Open your path ↗</b></button>';
     }).join("");
   }
 
@@ -199,8 +227,8 @@
     var equation = p.savings === null
       ? '<div class="compare-equation"><div><small>Separate channels</small><strong>4 apps</strong></div><b>→</b><div><small>Rivr Collaborator</small><strong>' + money(p.monthly) + '</strong></div><b>=</b><div class="save"><small>Connected result</small><strong>1 context</strong></div></div>'
       : '<div class="compare-equation"><div><small>Recognizable app stack</small><strong>' + money(p.stackTotal) + '</strong></div><b>−</b><div><small>Rivr ' + p.name + '</small><strong>' + money(p.monthly) + '</strong></div><b>=</b><div class="save"><small>Save each month</small><strong>' + money(p.savings) + '</strong></div></div>';
-    var table = '<div class="home-matrix-scroll" tabindex="0" aria-label="Scrollable ' + p.name + ' competitor feature table"><table class="home-matrix"><thead><tr><th scope="col">Feature</th>' + matrix.columns.map(function (column, index) { return '<th scope="col"' + (index === 0 ? ' class="rivr-head"' : '') + '>' + column + '</th>'; }).join("") + '</tr></thead><tbody>' + matrix.rows.map(function (row) { return '<tr><th scope="row">' + row[0] + '</th>' + row.slice(1).map(matrixStatus).join("") + '</tr>'; }).join("") + '</tbody></table></div>';
-    var chips = '<div class="stack-chips">' + p.stack.map(function (item) { return '<span><b>' + item.name + '</b> · ' + item.cost + '</span>'; }).join("") + (p.savings === null ? '<span>Free channels are <b>not counted as savings</b></span>' : '<span>Yearly Rivr savings · <b>' + money(annual) + '</b></span>') + '</div>';
+    var table = '<div class="home-matrix-scroll" tabindex="0" aria-label="Scrollable ' + p.name + ' competitor feature table"><table class="home-matrix"><thead><tr><th scope="col">Feature</th>' + matrix.columns.map(function (column, index) { return '<th scope="col"' + (index === 0 ? ' class="rivr-head"' : '') + '>' + brandLabel(column) + '</th>'; }).join("") + '</tr></thead><tbody>' + matrix.rows.map(function (row) { return '<tr><th scope="row">' + row[0] + '</th>' + row.slice(1).map(matrixStatus).join("") + '</tr>'; }).join("") + '</tbody></table></div>';
+    var chips = '<div class="stack-chips">' + p.stack.map(function (item) { return '<span>' + brandLabel(item.name) + '<i>' + item.cost + '</i></span>'; }).join("") + (p.savings === null ? '<span>Free channels are <b>not counted as savings</b></span>' : '<span>Yearly Rivr savings · <b>' + money(annual) + '</b></span>') + '</div>';
     target.innerHTML = '<nav class="compare-tabs" aria-label="Select product comparison">' + order.map(function (key) { return '<button type="button" data-compare-product="' + key + '" aria-pressed="' + (key === comparisonSelected) + '">' + products[key].name + '</button>'; }).join("") + '</nav>' + table + '<div class="compare-summary"><div><small>RECOGNIZABLE REPLACEMENT STACK</small><h3>' + p.name + ' vs. assembling the apps</h3></div>' + signal + '</div>' + equation + chips;
     target.querySelectorAll("[data-compare-product]").forEach(function (button) { button.addEventListener("click", function () { comparisonSelected = button.dataset.compareProduct; renderComparison(); }); });
   }

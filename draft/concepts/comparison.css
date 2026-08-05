@@ -1,4 +1,4 @@
-@layer reset, tokens, base, layout, components, responsive;
+@layer reset, tokens, base, glass, layout, components, responsive;
 
 @layer reset {
   *, *::before, *::after { box-sizing: border-box; }
@@ -34,6 +34,21 @@
   h1, h2, h3 { font-weight: 620; letter-spacing: -.055em; line-height: .98; text-wrap: balance; }
   em { color: var(--mint); font-family: Georgia, serif; font-weight: 400; }
   .eyebrow { color: var(--teal-dark); font-size: .67rem; font-weight: 790; letter-spacing: .14em; text-transform: uppercase; }
+  .glass-defs { position: fixed; pointer-events: none; }
+}
+
+@layer glass {
+  .liquid-glass { --glass-surface-bg: transparent; --glass-tint-color: rgba(255,255,255,.14); --glass-shine-light: rgba(255,255,255,.06); --glass-shine-dark: rgba(255,255,255,.04); position: relative; overflow: visible; background: var(--glass-surface-bg); box-shadow: none; }
+  .dark .liquid-glass { --glass-tint-color: rgba(255,255,255,.05); --glass-shine-light: rgba(255,255,255,.015); --glass-shine-dark: rgba(255,255,255,.01); }
+  .liquid-glass-shell { --glass-tint-color: rgba(255,255,255,.09); --glass-shine-light: rgba(255,255,255,.05); --glass-shine-dark: rgba(255,255,255,.03); box-shadow: none; }
+  .dark .liquid-glass-shell { --glass-tint-color: rgba(255,255,255,.035); --glass-shine-light: rgba(255,255,255,.012); --glass-shine-dark: rgba(255,255,255,.008); }
+  .liquid-glass-effect, .liquid-glass-distortion, .liquid-glass-effect-shell, .liquid-glass-effect-strong { position: absolute; z-index: 0; inset: 0; overflow: hidden; isolation: isolate; pointer-events: none; border-radius: inherit; -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
+  .liquid-glass-effect, .liquid-glass-distortion { filter: url(#glass-distortion); }
+  .liquid-glass-effect-shell { -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); filter: url(#glass-distortion-shell); }
+  .liquid-glass-effect-strong { filter: url(#glass-distortion-strong); }
+  .liquid-glass-tint { position: absolute; z-index: 1; inset: 0; background: var(--glass-tint-color); pointer-events: none; border-radius: inherit; }
+  .liquid-glass-shine { position: absolute; z-index: 2; inset: 0; overflow: hidden; pointer-events: none; border-radius: inherit; box-shadow: inset .5px .5px .5px 0 var(--glass-shine-light), inset -.5px -.5px .5px 0 var(--glass-shine-dark); }
+  .liquid-glass > :not(.liquid-glass-effect):not(.liquid-glass-distortion):not(.liquid-glass-effect-shell):not(.liquid-glass-effect-strong):not(.liquid-glass-tint):not(.liquid-glass-shine) { position: relative; z-index: 3; }
 }
 
 @layer layout {
@@ -62,6 +77,12 @@
   .research-rule { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(4, 1fr); max-width: 1340px; margin: 83px auto 0; border-top: 1px solid var(--line-dark); border-bottom: 1px solid var(--line-dark); }
   .research-rule span { padding: 17px 12px; color: rgba(244,255,251,.68); border-right: 1px solid var(--line-dark); font-size: .68rem; font-weight: 650; text-align: center; }
   .research-rule span:last-child { border-right: 0; }
+  .market-map { padding: 120px max(40px, calc((100vw - 1340px) / 2)); color: #f4fffb; background: radial-gradient(circle at 12% 18%, rgba(47,156,134,.26), transparent 31%), radial-gradient(circle at 86% 72%, rgba(214,171,83,.13), transparent 27%), linear-gradient(145deg, #08282b, #061e21); }
+  .market-map-heading { display: grid; grid-template-columns: .55fr 1fr .75fr; gap: 35px; align-items: end; max-width: 1340px; margin: 0 auto 46px; }
+  .market-map-heading .eyebrow { color: var(--mint); }
+  .market-map-heading h2 { font-size: clamp(3rem, 5vw, 5.7rem); }
+  .market-map-heading > p:last-child { color: rgba(244,255,251,.68); font-size: .84rem; }
+  .market-map-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; max-width: 1340px; margin: 0 auto; }
   .comparison-workspace { width: min(100% - 80px, 1340px); margin: 0 auto; padding: 120px 0; }
   .workspace-intro { display: grid; grid-template-columns: .65fr 1.35fr; gap: 30px; align-items: end; margin-bottom: 42px; }
   .workspace-intro h2 { max-width: 760px; font-size: clamp(3rem, 5.2vw, 5.8rem); }
@@ -75,6 +96,15 @@
 }
 
 @layer components {
+  .dark .market-map-grid article { --glass-tint-color: rgba(255,255,255,.045); display: flex; flex-direction: column; min-height: 220px; padding: 21px; overflow: hidden; border: 1px solid rgba(239,255,250,.15); border-radius: 18px; transition: border-color .25s, transform .3s var(--ease); }
+  .dark .market-map-grid article:hover { --glass-tint-color: rgba(184,234,219,.09); border-color: rgba(184,234,219,.45); transform: translateY(-5px); }
+  .market-map-grid article > span:not(.liquid-glass-distortion):not(.liquid-glass-effect-strong):not(.liquid-glass-tint):not(.liquid-glass-shine) { color: var(--mint); font-family: Georgia, serif; font-size: .7rem; font-style: italic; }
+  .market-map-grid h3 { margin-top: auto; padding-top: 30px; font-size: 1.35rem; }
+  .market-map-grid article > div { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 20px; }
+  .brand-label { display: inline-flex; align-items: center; gap: 8px; min-width: max-content; }
+  .brand-label img { flex: 0 0 auto; width: 24px; height: 24px; object-fit: contain; border-radius: 6px; }
+  .brand-label-compact { gap: 5px; padding: 5px 7px; color: rgba(244,255,251,.76); background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.1); border-radius: 999px; font-size: .55rem; font-weight: 680; }
+  .brand-label-compact img { width: 16px; height: 16px; border-radius: 4px; }
   .product-rail { position: sticky; z-index: 6; top: 12px; display: grid; grid-template-columns: repeat(5, 1fr); margin-bottom: 34px; box-shadow: 0 20px 60px rgba(6,30,33,.12); }
   .product-rail button { position: relative; display: grid; min-height: 116px; padding: 17px; color: var(--paper-2); text-align: left; background: var(--ink); border: 1px solid rgba(255,255,255,.11); cursor: pointer; transition: background .25s, transform .25s var(--ease); }
   .product-rail button + button { border-left: 0; }
@@ -103,6 +133,8 @@
   .stack-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1px; margin-top: 42px; overflow: hidden; background: var(--line); border: 1px solid var(--line); border-radius: 18px; }
   .stack-list article { display: flex; flex-direction: column; justify-content: space-between; min-height: 175px; padding: 21px; background: var(--paper-2); }
   .stack-list article > div:first-child { display: grid; }
+  .stack-list article > div:first-child .brand-label { display: flex; }
+  .stack-list .brand-label img { width: 27px; height: 27px; }
   .stack-list article span { margin-top: 5px; color: var(--muted); font-size: .67rem; }
   .stack-list article > div:last-child { display: grid; grid-template-columns: auto 1fr; align-items: baseline; margin-top: 24px; }
   .stack-list b { overflow-wrap: anywhere; font-size: clamp(1.05rem, 1.7vw, 1.7rem); line-height: 1.05; }
@@ -127,6 +159,9 @@
   thead th { position: sticky; top: 0; z-index: 2; min-width: 130px; color: #effff9; background: var(--ink); vertical-align: bottom; }
   thead th:first-child { left: 0; z-index: 4; min-width: 235px; }
   thead th small { display: block; margin-top: 7px; color: rgba(239,255,249,.57); font-size: .55rem; font-weight: 520; }
+  thead .brand-label { min-width: 0; align-items: flex-start; }
+  thead .brand-label img { width: 22px; height: 22px; }
+  thead .brand-label span { line-height: 1.18; }
   thead .rivr-column { color: var(--ink); background: var(--mint); }
   thead .rivr-column small { color: rgba(6,30,33,.66); }
   tbody th { position: sticky; left: 0; z-index: 1; color: var(--ink); background: var(--paper-2); font-weight: 690; }
@@ -196,6 +231,9 @@
     .hero-grid { grid-template-columns: 1fr; }
     .hero-signal { min-height: 240px; max-width: 520px; border-radius: 30px; }
     .compare-hero { padding-inline: 30px; }
+    .market-map { padding-inline: 30px; }
+    .market-map-heading { grid-template-columns: 1fr; }
+    .market-map-grid { grid-template-columns: repeat(2, 1fr); }
     .comparison-workspace { width: calc(100% - 40px); }
     .workspace-intro, .section-heading, .savings-copy, .money-layer { grid-template-columns: 1fr; }
     .money-layer-heading { position: static; }
@@ -217,6 +255,10 @@
     .research-rule { grid-template-columns: 1fr 1fr; margin-top: 55px; }
     .research-rule span:nth-child(2) { border-right: 0; }
     .research-rule span:nth-child(-n+2) { border-bottom: 1px solid var(--line-dark); }
+    .market-map { padding: 80px 16px; }
+    .market-map-heading h2 { font-size: 3rem; }
+    .market-map-grid { grid-template-columns: 1fr; }
+    .market-map-grid article { min-height: 190px; }
     .comparison-workspace { width: calc(100% - 20px); padding: 75px 0; }
     .workspace-intro { margin-bottom: 27px; }
     .workspace-intro h2, .section-heading h2 { font-size: 2.7rem; }
