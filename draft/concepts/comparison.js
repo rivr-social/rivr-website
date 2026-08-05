@@ -21,7 +21,9 @@
     connecteam: { name: "Connecteam pricing", url: "https://connecteam.com/pricing/", note: "Basic is $29/month per hub billed yearly, up to 30 users. Operations, Communications, and HR are separate hubs: $87/month together." },
     qbTime: { name: "QuickBooks Time pricing", url: "https://quickbooks.intuit.com/time-tracking/pricing/?type=business", note: "Time Premium list price is $20/month + $8/user/month and requires QuickBooks Online; temporary intro discounts excluded." },
     qbPayroll: { name: "QuickBooks Payroll pricing", url: "https://quickbooks.intuit.com/payroll/pricing/?product=core", note: "Payroll Core + Simple Start list price is $88/month + $6.50/employee/month; temporary intro discounts excluded." },
-    clover: { name: "Clover pricing", url: "https://www.clover.com/pricing", note: "Hardware, software, processing, contract terms, and pricing vary by business type and reseller; contact sales." }
+    clover: { name: "Clover pricing", url: "https://www.clover.com/pricing", note: "Hardware, software, processing, contract terms, and pricing vary by business type and reseller; contact sales." },
+    stripeTerminal: { name: "Stripe Tap to Pay", url: "https://docs.stripe.com/terminal/payments/setup-reader/tap-to-pay", note: "Stripe Terminal supports contactless payments on compatible iPhone and Android devices through native mobile SDKs. Rivr Pay is the native surface being designed around this rail." },
+    stripeIssuing: { name: "Stripe Issuing controls", url: "https://docs.stripe.com/issuing/controls/spending-controls", note: "Stripe Issuing supports virtual cards with amount, interval, merchant-category, and geography controls. Rivr connects these controls to subgroup and project budgets." }
   };
 
   var products = {
@@ -63,7 +65,7 @@
       number: "03", name: "Seller", segment: "Makers and independent sellers", monthly: 24.06, yearly: 207.72,
       stack: [{ name: "Shopify Basic", cost: 29, source: "shopify", why: "storefront + orders" }, { name: "Mailchimp Essentials", cost: 13, source: "mailchimp", why: "customer communication" }, { name: "Linktree Pro", cost: 9, source: "linktree", why: "public identity hub" }],
       thesis: "A storefront, paid offerings, orders, communication, and a trusted identity inside the same network where relationships already live.",
-      caveat: "Seller covers the complete selling workflow—publishing, discovery, storefront identity, orders, buyer communication, payment, and analytics—inside the relationships that give an offering its context.",
+      caveat: "Seller covers the complete selling workflow—publishing, discovery, storefront identity, online orders, buyer communication, payment, analytics, and Rivr Pay for native tap-to-pay—inside the relationships that give an offering its context.",
       columns: ["Rivr Seller", "Shopify Basic", "Etsy", "Amazon Pro", "Craigslist"],
       costs: ["$24.06/mo", "$29 annual · $39 monthly", "$0 base + listing/sale fees", "$39.99 + referral fees", "mostly free · some paid posts"],
       rows: [
@@ -73,15 +75,16 @@
         ["Built-in marketplace discovery", "full", "partial", "full", "full", "full"],
         ["Direct buyer communication", "full", "partial", "full", "partial", "full"],
         ["Community and contribution context", "full", "none", "partial", "none", "none"],
-        ["Seller keeps listed face price", "full", "partial", "none", "none", "full"]
+        ["Seller keeps listed face price", "full", "partial", "none", "none", "full"],
+        ["Native tap-to-pay checkout", "native", "full", "none", "none", "none"]
       ],
-      sources: ["shopify", "etsy", "etsyPayments", "amazon", "craigslist", "mailchimp", "linktree"]
+      sources: ["shopify", "etsy", "etsyPayments", "amazon", "craigslist", "mailchimp", "linktree", "stripeTerminal"]
     },
     provider: {
       number: "04", name: "Provider", segment: "Operators who host and sell", monthly: 35.06, yearly: 304.72,
       stack: [{ name: "Meetup Standard", cost: 14.58, source: "meetup", why: "group + events" }, { name: "Eventbrite Pro", cost: 15, source: "eventbrite", why: "ticketing" }, { name: "Shopify Basic", cost: 29, source: "shopify", why: "storefront" }, { name: "Calendly Standard", cost: 10, source: "calendly", why: "service scheduling" }, { name: "Mailchimp Essentials", cost: 13, source: "mailchimp", why: "audience communication" }],
       thesis: "The whole shape of independent work—events, services, offerings, bookings, orders, and audience—under one provider identity.",
-      caveat: "Provider completes the combined host-and-seller loop in one identity: invite, schedule, ticket, offer, transact, communicate, and turn one-time customers or attendees into repeat participation.",
+      caveat: "Provider completes the combined host-and-seller loop in one identity: invite, schedule, ticket, offer, transact online or in person through Rivr Pay, communicate, and turn one-time customers or attendees into repeat participation.",
       columns: ["Rivr Provider", "Meetup", "Eventbrite", "Shopify", "Calendly", "Mailchimp"],
       costs: ["$35.06/mo", "$14.58 equivalent", "$0 base · Pro $15", "$29 annual", "$10/seat annual", "from $13/mo"],
       rows: [
@@ -91,15 +94,16 @@
         ["Appointments / booking workflow", "full", "partial", "partial", "partial", "full", "none"],
         ["Inventory and orders", "full", "none", "partial", "full", "none", "none"],
         ["Audience communication", "full", "partial", "full", "partial", "partial", "full"],
-        ["Unified participant/customer context", "full", "none", "partial", "partial", "partial", "partial"]
+        ["Unified participant/customer context", "full", "none", "partial", "partial", "partial", "partial"],
+        ["Native tap-to-pay checkout", "native", "none", "partial", "full", "none", "none"]
       ],
-      sources: ["meetup", "eventbrite", "shopify", "calendly", "mailchimp"]
+      sources: ["meetup", "eventbrite", "shopify", "calendly", "mailchimp", "stripeTerminal"]
     },
     organization: {
       number: "05", name: "Organization", segment: "Teams, co-ops, nonprofits, and programs", monthly: 46.06, yearly: 391.72,
       stack: [{ name: "Connecteam · 3 Basic hubs", cost: 87, source: "connecteam", why: "operations + communications + HR" }, { name: "Shopify Basic", cost: 29, source: "shopify", why: "offerings + orders" }, { name: "Meetup Standard", cost: 14.58, source: "meetup", why: "public community + events" }, { name: "Eventbrite Pro", cost: 15, source: "eventbrite", why: "ticketing + event email" }],
-      thesis: "Roles, projects, job timers, paid work, events, offerings, communication, analytics, and shared context without splitting the mission across an operations stack.",
-      caveat: "Organization covers the whole operating loop: roles, projects, timers, hourly or fixed work, contributor payouts, events, commerce, communication, analytics, and API access—with the mission and relationships still attached.",
+      thesis: "Roles, projects, job timers, paid work, tax set-asides, controlled project spending, events, online and in-person sales, communication, analytics, and shared context without splitting the mission across an operations stack.",
+      caveat: "Organization covers the whole operating loop: roles, projects, timers, hourly or fixed work, contributor payouts, optional tax reserves, subgroup and project cards, Rivr Pay, events, commerce, communication, analytics, and API access—with the mission and relationships still attached.",
       columns: ["Rivr Organization", "Connecteam", "QuickBooks Time", "QB Payroll", "Clover", "Shopify", "Meetup"],
       costs: ["$46.06/mo", "$29/hub annual", "$20 + $8/user", "$88 + $6.50/employee", "variable + hardware/fees", "$29 annual", "$14.58 equivalent"],
       rows: [
@@ -107,12 +111,15 @@
         ["Projects, jobs, and task ownership", "full", "full", "partial", "none", "none", "none", "none"],
         ["Timers and tracked-time records", "full", "full", "full", "partial", "partial", "none", "none"],
         ["Pay fixed/hourly project work", "full", "partial", "none", "full", "none", "none", "none"],
+        ["Optional automatic tax set-aside", "full", "none", "none", "full", "none", "none", "none"],
+        ["Subgroup / project spend cards", "stripe", "partial", "none", "none", "partial", "none", "none"],
+        ["Native tap-to-pay checkout", "native", "none", "none", "none", "full", "full", "none"],
         ["Paid events and tickets", "full", "partial", "none", "none", "none", "none", "full"],
         ["Offerings, inventory, and orders", "full", "none", "none", "none", "full", "full", "none"],
         ["Community + governance context", "full", "partial", "none", "none", "none", "none", "partial"],
         ["Analytics and API access", "full", "partial", "partial", "partial", "partial", "partial", "partial"]
       ],
-      sources: ["connecteam", "qbTime", "qbPayroll", "clover", "shopify", "meetup", "eventbrite"]
+      sources: ["connecteam", "qbTime", "qbPayroll", "clover", "shopify", "meetup", "eventbrite", "stripeTerminal", "stripeIssuing"]
     }
   };
 
@@ -136,7 +143,7 @@
 
   function hero() {
     var maxSave = monthlySavings(products.organization);
-    return '<section class="compare-hero"><div class="hero-grid"><div><p class="eyebrow">Product stack study · US pricing · August 5, 2026</p><h1>One subscription.<br><em>Fewer fragments.</em></h1><p class="hero-copy">Rivr is not five unrelated apps bundled behind one login. It connects identity, community, exchange, events, and coordinated work so information can keep its context as people move between them.</p></div><div class="hero-signal" aria-label="Largest modeled monthly stack savings"><span>Modeled savings up to</span><strong>' + money(maxSave) + '</strong><small>per month before transaction fees</small><i></i></div></div><div class="research-rule"><span>17 official source pages</span><span>5 product models</span><span>Fees separated by who pays</span><span>Limits named, not hidden</span></div></section>';
+    return '<section class="compare-hero"><div class="hero-grid"><div><p class="eyebrow">Product stack study · US pricing · August 5, 2026</p><h1>One subscription.<br><em>Fewer fragments.</em></h1><p class="hero-copy">Rivr is not five unrelated apps bundled behind one login. It connects identity, community, exchange, events, coordinated work, and a Stripe-powered money layer so information can keep its context as people move between them.</p></div><div class="hero-signal" aria-label="Largest modeled monthly stack savings"><span>Modeled savings up to</span><strong>' + money(maxSave) + '</strong><small>per month before transaction fees</small><i></i></div></div><div class="research-rule"><span>19 official source pages</span><span>5 product models</span><span>Fees separated by who pays</span><span>Limits named, not hidden</span></div></section>';
   }
 
   function productRail() {
@@ -156,12 +163,25 @@
   }
 
   function statusCell(status) {
-    var labels = { full: "Included", partial: "Partial / adjacent", none: "Not included" };
+    var labels = { full: "Included", native: "Rivr Pay", stripe: "Stripe-powered", partial: "Partial / adjacent", none: "Not included" };
     return '<td><span class="status status-' + status + '"><i aria-hidden="true"></i>' + labels[status] + '</span></td>';
   }
 
   function featureMatrix(product) {
-    return '<section class="matrix-section" aria-labelledby="matrix-title"><div class="section-heading"><p class="eyebrow">Functional outcome map</p><h2 id="matrix-title">How each product gets the work done.</h2><p>“Partial” means the service contributes to the outcome but needs another tool to complete it. Scroll horizontally on small screens.</p></div><div class="matrix-scroll" tabindex="0" aria-label="Scrollable feature comparison for ' + product.name + '"><table><thead><tr><th scope="col">Capability</th>' + product.columns.map(function (column, index) { return '<th scope="col"' + (index === 0 ? ' class="rivr-column"' : '') + '>' + column + '<small>' + product.costs[index] + '</small></th>'; }).join("") + '</tr></thead><tbody>' + product.rows.map(function (row) { return '<tr><th scope="row">' + row[0] + '</th>' + row.slice(1).map(statusCell).join("") + '</tr>'; }).join("") + '</tbody></table></div></section>';
+    return '<section class="matrix-section" aria-labelledby="matrix-title"><div class="section-heading"><p class="eyebrow">Functional outcome map</p><h2 id="matrix-title">How each product gets the work done.</h2><p>“Partial” means the service contributes to the outcome but needs another tool to complete it. “Rivr Pay” identifies the native tap-to-pay surface now in design. Scroll horizontally on small screens.</p></div><div class="matrix-scroll" tabindex="0" aria-label="Scrollable feature comparison for ' + product.name + '"><table><thead><tr><th scope="col">Capability</th>' + product.columns.map(function (column, index) { return '<th scope="col"' + (index === 0 ? ' class="rivr-column"' : '') + '>' + column + '<small>' + product.costs[index] + '</small></th>'; }).join("") + '</tr></thead><tbody>' + product.rows.map(function (row) { return '<tr><th scope="row">' + row[0] + '</th>' + row.slice(1).map(statusCell).join("") + '</tr>'; }).join("") + '</tbody></table></div></section>';
+  }
+
+  function moneyLayer(productKey) {
+    if (["seller", "provider", "organization"].indexOf(productKey) === -1) return "";
+    var cards = [
+      '<article><span>01</span><div><small>Accept</small><h3>Rivr Pay</h3><p>Turn a compatible phone into a contactless point of sale. The Stripe Terminal settlement and fee rail is built; the dedicated native Rivr Pay experience is now being designed.</p></div></article>',
+      '<article><span>02</span><div><small>Settle</small><h3>Connected payouts</h3><p>Online and in-person payments settle through the same connected seller account, keeping the offering, buyer, receipt, and payout in one operating context.</p></div></article>'
+    ];
+    if (productKey === "organization") {
+      cards.push('<article><span>03</span><div><small>Reserve</small><h3>Choose a tax set-aside</h3><p>Members can choose a withholding rate so part of earned income stays reserved for taxes. It remains their money and is an estimate—not tax filing or tax advice.</p></div></article>');
+      cards.push('<article><span>04</span><div><small>Control</small><h3>Cards by project</h3><p>Issue Stripe-powered virtual cards to a subgroup or project, fund them from the right treasury, and apply spending limits where the work actually happens.</p></div></article>');
+    }
+    return '<section class="money-layer" aria-labelledby="money-layer-title"><div class="money-layer-heading"><p class="eyebrow">One connected money layer</p><h2 id="money-layer-title">From receiving money to putting it to work.</h2><p>Rivr uses Stripe infrastructure without making teams leave Rivr to understand why money moved, who it belonged to, or which project authorized it.</p></div><div class="money-layer-grid">' + cards.join("") + '</div></section>';
   }
 
   function rivrCheckoutSurcharge(faceValue) {
@@ -201,7 +221,7 @@
     var connecteam = 87;
     var qbTime = 20 + team * 8;
     var qbPayroll = 88 + team * 6.5;
-    return '<div class="scenario-cards">' + scenarioCard("Rivr Organization", product.monthly, "Roles, projects, timers, paid project work, events, offerings, analytics, and API access.", "rivr") + scenarioCard("Connecteam · 3 Basic hubs", connecteam, "Annual-billed Operations + Communications + HR, up to 30 users.") + scenarioCard("QuickBooks Time", qbTime, "$20 base + $8 × " + team + " users for the time-tracking portion alone; QuickBooks Online is also required.") + scenarioCard("QuickBooks Payroll", qbPayroll, "$88 + $6.50 × " + team + " employees for payroll and accounting. Rivr connects tracked project work directly to contributor payout.") + '</div>';
+    return '<div class="scenario-cards">' + scenarioCard("Rivr Organization", product.monthly, "Roles, projects, timers, paid project work, optional tax reserves, project cards, Rivr Pay, events, offerings, analytics, and API access.", "rivr") + scenarioCard("Connecteam · 3 Basic hubs", connecteam, "Annual-billed Operations + Communications + HR, up to 30 users.") + scenarioCard("QuickBooks Time", qbTime, "$20 base + $8 × " + team + " users for the time-tracking portion alone; QuickBooks Online is also required.") + scenarioCard("QuickBooks Payroll", qbPayroll, "$88 + $6.50 × " + team + " employees for payroll and accounting. Rivr connects tracked project work to payout and a member-chosen tax reserve.") + '</div>';
   }
 
   function scenarioSection(productKey, product) {
@@ -223,7 +243,7 @@
   function renderProduct() {
     var product = products[selected];
     var target = document.querySelector("[data-product-detail]");
-    target.innerHTML = savingsPanel(product) + featureMatrix(product) + scenarioSection(selected, product) + sourcesSection(product);
+    target.innerHTML = savingsPanel(product) + moneyLayer(selected) + featureMatrix(product) + scenarioSection(selected, product) + sourcesSection(product);
     document.querySelectorAll("[data-select-product]").forEach(function (button) { button.setAttribute("aria-pressed", String(button.dataset.selectProduct === selected)); });
     bindScenario();
   }
@@ -242,7 +262,7 @@
     });
   }
 
-  root.innerHTML = header() + '<main>' + hero() + '<section class="comparison-workspace"><div class="workspace-intro"><p class="eyebrow">Choose the product, then inspect the stack</p><h2>The comparison changes with the job.</h2></div>' + productRail() + '<div data-product-detail></div></section>' + methodology() + '</main><footer class="compare-footer"><img src="/assets/rivr-symbol-light.png" alt=""><p>Not a blanket “all-in-one” claim. A sourced map of what one connected system can replace—and what it cannot.</p><a href="https://app.rivr.social/subscribe">Choose your Rivr product ↗</a></footer>';
+  root.innerHTML = header() + '<main>' + hero() + '<section class="comparison-workspace"><div class="workspace-intro"><p class="eyebrow">Choose the product, then inspect the stack</p><h2>The comparison changes with the job.</h2></div>' + productRail() + '<div data-product-detail></div></section>' + methodology() + '</main><footer class="compare-footer"><img src="/assets/rivr-symbol-light.png" alt=""><p>A sourced, product-by-product view of how one connected system can replace a fragmented operating stack.</p><a href="https://app.rivr.social/subscribe">Choose your Rivr product ↗</a></footer>';
 
   document.querySelector(".product-rail").addEventListener("click", function (event) {
     var button = event.target.closest("[data-select-product]");
