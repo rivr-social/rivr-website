@@ -161,12 +161,11 @@
   .billing-toggle button[aria-pressed="true"] { color: var(--deep); background: var(--mint); }
   .billing-toggle span { margin-left: 5px; }
   .product-deck { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 68px; }
-  .product-card { --product: var(--mint); --product-soft: var(--mint-soft); position: relative; display: flex; flex-direction: column; min-width: 0; min-height: 365px; padding: 20px; overflow: hidden; color: var(--ink); text-align: left; background: rgba(255,255,255,.027); border: 1px solid var(--line); border-radius: 12px; cursor: pointer; isolation: isolate; transition: transform .35s var(--ease), background .3s, border-color .3s; }
+  .product-card { --product: var(--mint); --product-soft: var(--mint-soft); position: relative; display: flex; flex-direction: column; min-width: 0; min-height: 330px; padding: 20px; overflow: hidden; color: var(--ink); text-align: left; background: rgba(255,255,255,.027); border: 1px solid var(--line); border-radius: 12px; cursor: pointer; isolation: isolate; transition: transform .35s var(--ease), background .3s, border-color .3s; }
   .product-card::before { content: ""; position: absolute; z-index: -1; inset: 0; opacity: .35; background: radial-gradient(circle at 75% 12%, color-mix(in srgb, var(--product) 42%, transparent), transparent 37%); transition: opacity .3s, transform .6s var(--ease); }
-  .product-card:hover, .product-card[aria-pressed="true"] { transform: translateY(-8px); background: rgba(255,255,255,.055); border-color: color-mix(in srgb, var(--product) 65%, transparent); }
-  .product-card[aria-pressed="true"]::before, .product-card:hover::before { opacity: .9; transform: scale(1.15); }
-  .product-card-top { display: flex; align-items: start; justify-content: space-between; }
-  .product-number { font-family: Georgia, serif; font-size: .72rem; font-style: italic; opacity: .58; }
+  .product-card:hover { transform: translateY(-8px); background: rgba(255,255,255,.055); border-color: color-mix(in srgb, var(--product) 65%, transparent); }
+  .product-card:hover::before { opacity: .9; transform: scale(1.15); }
+  .product-card-top { display: flex; align-items: start; }
   .product-icon { width: 42px; height: 42px; color: var(--product-soft); }
   .product-icon svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.5; }
   .product-card small { margin-top: auto; color: var(--ink-muted); font-size: .55rem; font-weight: 760; letter-spacing: .08em; line-height: 1.45; text-transform: uppercase; }
@@ -181,19 +180,6 @@
   .product-seller { --product: #d17249; --product-soft: #f1c7b2; }
   .product-provider { --product: #9277cf; --product-soft: #d9cff0; }
   .product-organization { --product: #d2a854; --product-soft: #efdca8; }
-  .product-journey { --product: var(--mint); --product-soft: var(--mint-soft); margin-top: 16px; padding: clamp(27px, 4vw, 55px); border: 1px solid var(--line); border-radius: 18px; }
-  .journey-head { display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: end; }
-  .journey-head small { color: var(--product-soft); font-size: .6rem; font-weight: 780; letter-spacing: .11em; text-transform: uppercase; }
-  .journey-head h3 { margin-top: 10px; font-size: clamp(2.7rem, 4.6vw, 5rem); }
-  .journey-head p { max-width: 570px; color: var(--ink-muted); font-size: .8rem; }
-  .altitude-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 43px; }
-  .altitude-card { display: flex; flex-direction: column; min-height: 375px; padding: 23px; color: var(--ink); text-align: left; background: rgba(255,255,255,.025); border: 1px solid var(--line); border-radius: 11px; cursor: pointer; transition: transform .35s var(--ease), background .3s, border-color .3s; }
-  .altitude-card:hover, .altitude-card:focus-visible { transform: translateY(-7px); background: color-mix(in srgb, var(--product) 14%, transparent); border-color: color-mix(in srgb, var(--product) 52%, transparent); }
-  .altitude-card > span { font-family: Georgia, serif; font-size: .72rem; font-style: italic; opacity: .56; }
-  .altitude-card small { margin-top: auto; color: var(--product-soft); font-size: .57rem; font-weight: 780; letter-spacing: .11em; text-transform: uppercase; }
-  .altitude-card strong { margin-top: 12px; font-size: clamp(1.45rem, 2.2vw, 2.25rem); letter-spacing: -.045em; line-height: 1.02; }
-  .altitude-card p { margin-top: 17px; color: var(--ink-muted); font-size: .72rem; }
-  .altitude-card b { margin-top: 22px; color: var(--product-soft); font-size: .55rem; letter-spacing: .07em; text-transform: uppercase; }
 
   .flow-section { --flow-progress: 0; position: relative; min-height: 300vh; background: #001f20; }
   .flow-sticky { position: sticky; top: 0; height: 100svh; overflow: hidden; isolation: isolate; }
@@ -319,6 +305,7 @@
   .dialog-tabs button { padding: 0 9px 14px; color: var(--ink-muted); text-align: left; background: transparent; border: 0; border-bottom: 2px solid transparent; cursor: pointer; font-size: .61rem; font-weight: 740; }
   .dialog-tabs button span { display: block; margin-bottom: 5px; color: var(--ink); font-family: Georgia, serif; font-style: italic; }
   .dialog-tabs button[aria-selected="true"] { color: var(--ink); border-color: var(--product-soft); }
+  .dialog-tabs button:disabled { cursor: default; opacity: .3; }
   .dialog-panel { padding: 42px 2px 25px; }
   .dialog-panel > small { color: var(--product-soft); font-size: .58rem; font-weight: 780; letter-spacing: .12em; text-transform: uppercase; }
   .dialog-panel h3 { margin-top: 15px; font-size: clamp(2.3rem, 4.1vw, 4.2rem); }
@@ -332,6 +319,7 @@
   .dialog-footer button:disabled { opacity: .3; }
   .dialog-footer span { margin-inline: auto; color: var(--ink-muted); font-size: .58rem; }
   .dialog-footer a { color: var(--deep); background: var(--product-soft); border-color: var(--product-soft); }
+  .dialog-footer [data-dialog-next] { color: var(--deep); background: var(--product-soft); border-color: var(--product-soft); }
 }
 
 @layer motion {
@@ -391,13 +379,10 @@
     .signal-card { min-height: 118px; }
     .app-project { grid-template-columns: 1fr; }
     .project-image { display: none; }
-    .split-heading, .journey-head, .money-layout, .comparison-heading { grid-template-columns: 1fr; }
+    .split-heading, .money-layout, .comparison-heading { grid-template-columns: 1fr; }
     .split-heading { gap: 32px; }
     .product-deck { display: flex; margin-inline: -14px; padding: 8px 14px; overflow-x: auto; scroll-snap-type: x mandatory; }
-    .product-card, .product-card:nth-child(n+4) { flex: 0 0 78vw; min-height: 340px; scroll-snap-align: center; }
-    .journey-head { align-items: start; }
-    .altitude-grid { grid-template-columns: 1fr; }
-    .altitude-card { min-height: 310px; }
+    .product-card, .product-card:nth-child(n+4) { flex: 0 0 78vw; min-height: 315px; scroll-snap-align: center; }
     .flow-section { min-height: 225vh; }
     .flow-copy h2 { font-size: clamp(2.7rem, 12vw, 4.35rem); }
     .flow-field svg { right: -45%; width: 130vw; }
@@ -429,7 +414,6 @@
     .hero-copy { font-size: .98rem; }
     .app-window { margin-inline: -5px; }
     .hero-rail span:nth-of-type(n+5), .hero-rail i:nth-of-type(n+4) { display: none; }
-    .product-journey { padding-inline: 17px; }
     .context-grid article, .context-wide { min-height: 380px; }
     .dialog-tabs { padding-right: 20px; }
     .dialog-tabs button { font-size: .54rem; }
