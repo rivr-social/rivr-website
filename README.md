@@ -39,6 +39,18 @@ The page-by-page reference audit is recorded in `SQUARESPACE-PARITY.md`.
 Run `python3 -m http.server 8080` and open `http://localhost:8080`. For exact
 extensionless-route behavior, run the Docker Compose service.
 
+### Modern marketing draft
+
+`draft/` is an isolated, single-page public marketing concept for
+`https://draft.rivr.social`. It uses the three-altitude narrative frame—Rivr in
+daily life, in community culture, and in the wider world—while keeping the
+language direct enough for a general public audience.
+
+Run `python3 -m http.server 8081 --directory draft` and open
+`http://localhost:8081`. `draft-nginx.conf` and the `rivr-landing-draft`
+Compose service define its independent production runtime; changes to that
+service do not replace the main `rivr.social` files or container.
+
 ## Production
 
 PeerMesh Core serves this repository through the `pmdl_rivr_landing` nginx

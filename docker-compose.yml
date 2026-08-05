@@ -16,6 +16,23 @@ services:
       - "traefik.http.routers.rivr-landing.tls.certresolver=letsencrypt"
       - "traefik.http.services.rivr-landing.loadbalancer.server.port=80"
       - "com.centurylinklabs.watchtower.enable=false"
+  rivr-landing-draft:
+    image: nginx:1.27-alpine
+    container_name: pmdl_rivr_landing_draft
+    restart: unless-stopped
+    volumes:
+      - ./draft:/usr/share/nginx/html:ro
+      - ./draft-nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - proxy-external
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.rivr-landing-draft.rule=Host(`draft.rivr.social`)"
+      - "traefik.http.routers.rivr-landing-draft.entrypoints=websecure"
+      - "traefik.http.routers.rivr-landing-draft.tls=true"
+      - "traefik.http.routers.rivr-landing-draft.tls.certresolver=letsencrypt"
+      - "traefik.http.services.rivr-landing-draft.loadbalancer.server.port=80"
+      - "com.centurylinklabs.watchtower.enable=false"
 networks:
   proxy-external:
     external: true
