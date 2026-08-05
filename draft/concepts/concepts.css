@@ -62,6 +62,9 @@
   .preview-tidal::before { background-image: url('/assets/hero-water.webp'); }
   .preview-field::before { background-image: url('/assets/community-grid.webp'); }
   .preview-atlas::before { background-image: url('/assets/connected-place.jpg'); }
+  .preview-catalog::before { background-image: url('/assets/directory.webp'); }
+  .preview-finder::before { background-image: url('/assets/community-grid.webp'); }
+  .preview-journeys::before { background-image: url('/assets/connected-place.jpg'); }
   .concept-preview:hover { z-index: 1; transform: translateY(-14px); border-color: rgba(183,238,231,.7); }
   .concept-preview:hover::before { transform: scale(1.08); opacity: .62; }
   .preview-number { align-self: flex-end; font-family: Georgia, serif; font-style: italic; opacity: .72; }
