@@ -148,7 +148,9 @@
   .app-project strong { margin-top: 12px; font-size: 1.22rem; }
   .app-project p { margin-top: 7px; color: var(--ink-muted); font-size: .58rem; }
   .app-project > div > span { display: flex; align-items: center; margin-top: auto; }
-  .app-project i { width: 21px; height: 21px; margin-left: -5px; background: hsl(calc(36 + var(--avatar) * 60) 48% 64%); border: 2px solid var(--deep-2); border-radius: 50%; }
+  .app-project i { width: 21px; height: 21px; margin-left: -5px; background: #d9b36d; border: 2px solid var(--deep-2); border-radius: 50%; }
+  .app-project i:nth-of-type(2) { background: #9dd283; }
+  .app-project i:nth-of-type(3) { background: #76d2be; }
   .app-project i:first-child { margin-left: 0; }
   .app-project b { margin-left: auto; color: var(--mint); font-size: .55rem; }
 
