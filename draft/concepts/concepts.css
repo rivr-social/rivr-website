@@ -53,7 +53,7 @@
   .hub-intro h1 { max-width: 1000px; margin-top: 30px; font-size: clamp(4rem, 10vw, 9rem); }
   .hub-intro h1 em { color: var(--aqua); }
   .hub-intro > p:last-child { max-width: 620px; margin-top: 36px; color: rgba(247,255,253,.66); font-size: 1.18rem; }
-  .concept-grid { display: grid; grid-template-columns: repeat(3, 1fr); width: var(--wrap); margin: 0 auto; padding-bottom: 110px; }
+  .concept-grid { display: grid; grid-template-columns: repeat(4, 1fr); width: var(--wrap); margin: 0 auto; padding-bottom: 110px; }
   .concept-preview { position: relative; display: flex; flex-direction: column; justify-content: space-between; min-height: 520px; padding: 28px; overflow: hidden; border: 1px solid rgba(255,255,255,.16); transition: transform .5s var(--ease), border-color .4s; }
   .concept-preview + .concept-preview { border-left: 0; }
   .concept-preview::before, .concept-preview::after { content: ""; position: absolute; z-index: -1; inset: 0; transition: transform .8s var(--ease), opacity .5s; }
@@ -65,6 +65,7 @@
   .preview-catalog::before { background-image: url('/assets/directory.webp'); }
   .preview-finder::before { background-image: url('/assets/community-grid.webp'); }
   .preview-journeys::before { background-image: url('/assets/connected-place.jpg'); }
+  .preview-comparison::before { background-image: url('/assets/sharing.webp'); }
   .concept-preview:hover { z-index: 1; transform: translateY(-14px); border-color: rgba(183,238,231,.7); }
   .concept-preview:hover::before { transform: scale(1.08); opacity: .62; }
   .preview-number { align-self: flex-end; font-family: Georgia, serif; font-style: italic; opacity: .72; }
@@ -76,7 +77,7 @@
   .evaluation-intro h2 { font-size: clamp(2.8rem, 5.4vw, 5.7rem); }
   .evaluation-intro h2 em { color: var(--aqua); }
   .evaluation-intro > p:last-child { color: rgba(247,255,253,.62); }
-  .evaluation-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .evaluation-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
   .evaluation-grid article { min-height: 290px; padding: 28px; border: 1px solid rgba(255,255,255,.14); }
   .evaluation-grid article + article { border-left: 0; }
   .evaluation-grid span { color: var(--aqua); font-size: .62rem; font-weight: 740; letter-spacing: .14em; text-transform: uppercase; }

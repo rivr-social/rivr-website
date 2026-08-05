@@ -229,6 +229,7 @@
       '<a href="/concepts/catalog/"' + (concept === "catalog" ? ' aria-current="page"' : '') + '>Catalog</a>' +
       '<a href="/concepts/finder/"' + (concept === "finder" ? ' aria-current="page"' : '') + '>Finder</a>' +
       '<a href="/concepts/journeys/"' + (concept === "journeys" ? ' aria-current="page"' : '') + '>Journeys</a>' +
+      '<a href="/concepts/comparison/">Compare</a>' +
       '</nav>';
   }
 
