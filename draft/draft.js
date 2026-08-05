@@ -10,7 +10,7 @@
         { label: "In community", title: "Make every contribution count.", copy: "Your skills and follow-through become visible across the groups and projects you join.", outcomes: ["Carry trust forward", "Reveal shared capacity", "Make belonging active"] },
         { label: "Across the network", title: "Turn participation into local power.", copy: "Give more people a real path into civic and economic life, wherever they live.", outcomes: ["Lower the barrier to action", "Strengthen interdependence", "Connect places without flattening them"] }
       ],
-      stack: ["Linktree Pro $9", "Discord Nitro $9.99"], stackTotal: 18.99, savings: 5.93
+      stack: [{ name: "Facebook", cost: "$0 base" }, { name: "Instagram", cost: "$0 base" }, { name: "LinkedIn", cost: "$0 basic" }, { name: "Meetup", cost: "$0 member" }], stackTotal: 0, savings: null
     },
     host: {
       number: "02", name: "Host", segment: "Conveners + event makers", invitation: "Fill the room. Keep the community growing after it empties.", capability: "Ticket + convene", monthly: 24.06, yearly: 222.72, url: "https://app.rivr.social/products/membership-host",
@@ -20,7 +20,7 @@
         { label: "In community", title: "Turn gatherings into belonging.", copy: "Connect every event to the people, groups, and next actions around it.", outcomes: ["Welcome newcomers", "Create continuity", "Grow shared practice"] },
         { label: "Across the network", title: "Let local culture travel.", copy: "Link gatherings across places without stripping away what makes each one local.", outcomes: ["Root culture in place", "Move knowledge through experience", "Connect hosts across regions"] }
       ],
-      stack: ["Meetup Standard $14.58", "Eventbrite Pro $15"], stackTotal: 29.58, savings: 5.52
+      stack: [{ name: "Luma Plus", cost: "$59" }, { name: "Meetup Standard", cost: "$14.58" }, { name: "Facebook + Instagram", cost: "$0 base" }], stackTotal: 73.58, savings: 49.52
     },
     seller: {
       number: "03", name: "Seller", segment: "Makers + independent sellers", invitation: "Put your offering where trust and buyers already meet.", capability: "Offer + earn", monthly: 24.06, yearly: 207.72, url: "https://app.rivr.social/products/membership-seller",
@@ -30,7 +30,7 @@
         { label: "In community", title: "Keep more value moving nearby.", copy: "Put your offering beside the people, projects, and needs that give it meaning.", outcomes: ["Reach through shared context", "Build durable customers", "Strengthen local exchange"] },
         { label: "Across the network", title: "Connect resilient local markets.", copy: "Help independent sellers grow across places without surrendering their relationships.", outcomes: ["Link values-aligned markets", "Diversify local economies", "Keep commerce accountable"] }
       ],
-      stack: ["Shopify Basic $29", "Mailchimp Essentials $13", "Linktree Pro $9"], stackTotal: 51, savings: 26.94
+      stack: [{ name: "Square Plus", cost: "$49" }, { name: "Etsy", cost: "sales fees" }, { name: "Instagram", cost: "$0 base" }], stackTotal: 49, savings: 24.94
     },
     provider: {
       number: "04", name: "Provider", segment: "Operators who host + sell", invitation: "Run events, services, and sales from one trusted presence.", capability: "Host + sell", monthly: 35.06, yearly: 304.72, url: "https://app.rivr.social/products/membership-provider",
@@ -40,17 +40,79 @@
         { label: "In community", title: "Become a reliable community anchor.", copy: "Give people more ways to learn, gather, buy, and return.", outcomes: ["Connect learning and exchange", "Create more ways in", "Grow around your practice"] },
         { label: "Across the network", title: "Make independent work infrastructure.", copy: "Carry knowledge, care, and economic life between communities without a central gatekeeper.", outcomes: ["Support viable practices", "Connect providers across places", "Distribute knowledge and agency"] }
       ],
-      stack: ["Meetup $14.58", "Eventbrite Pro $15", "Shopify $29", "Calendly $10", "Mailchimp $13"], stackTotal: 81.58, savings: 46.52
+      stack: [{ name: "Square Plus", cost: "$49" }, { name: "Luma Plus", cost: "$59" }, { name: "Etsy + Instagram", cost: "fees + ads" }], stackTotal: 108, savings: 72.94
     },
     organization: {
       number: "05", name: "Organization", segment: "Teams + co-ops + programs", invitation: "Coordinate the mission, the money, and the work in one place.", capability: "Coordinate + pay", monthly: 46.06, yearly: 391.72, url: "https://app.rivr.social/products/membership-organizer",
-      features: ["Projects, roles, jobs, and timers", "Contributor payouts + tax reserve", "Subgroup and project cards", "Events, commerce, analytics, API"],
+      features: ["Projects, roles, docs, and governance", "Contributor payouts + tax reserve", "Subgroup treasuries and project cards", "Events, commerce, analytics, API"],
       altitudes: [
-        { label: "For your organization", title: "Run the mission from one context.", copy: "Coordinate roles, projects, events, offerings, payouts, tax reserves, and project cards.", outcomes: ["Assign and pay the work", "Move money with purpose", "Keep operations connected"] },
+        { label: "For your organization", title: "Run the mission from one context.", copy: "Coordinate roles, projects, docs, governance, treasuries, payouts, events, offerings, and project cards.", outcomes: ["Keep knowledge and decisions together", "Assign and pay the work", "Move money with purpose"] },
         { label: "In community", title: "Make responsibility and money legible.", copy: "Let members see what needs doing, how decisions happen, and where resources move.", outcomes: ["Distribute responsibility", "Clarify governance", "Build durable memory"] },
         { label: "Across the network", title: "Collaborate without merging.", copy: "Work across organizations while each one keeps its identity, authority, and context.", outcomes: ["Coordinate across boundaries", "Preserve local agency", "Build plural infrastructure"] }
       ],
-      stack: ["Connecteam 3 hubs $87", "Shopify $29", "Meetup $14.58", "Eventbrite Pro $15"], stackTotal: 145.58, savings: 99.52
+      stack: [{ name: "Asana · 5 seats", cost: "$54.95" }, { name: "Slack · 5 seats", cost: "$36.25" }, { name: "Square Payroll · 5", cost: "$65" }, { name: "Square Plus", cost: "$49" }, { name: "Shopify", cost: "$29" }, { name: "Luma Plus", cost: "$59" }], stackTotal: 293.20, savings: 247.14
+    }
+  };
+
+  var comparisonMatrices = {
+    collaborator: {
+      columns: ["Rivr", "Facebook", "Instagram", "LinkedIn", "Meetup"],
+      rows: [
+        ["Portable identity", "yes", "yes", "yes", "yes", "some"],
+        ["Groups + local events", "yes", "yes", "some", "some", "yes"],
+        ["Messaging", "yes", "yes", "yes", "yes", "some"],
+        ["Gigs + project roles", "yes", "some", "some", "yes", "no"],
+        ["Contribution record", "yes", "no", "no", "some", "no"],
+        ["Cross-org context", "yes", "no", "no", "no", "no"]
+      ]
+    },
+    host: {
+      columns: ["Rivr", "Luma", "Eventbrite", "Facebook", "Meetup"],
+      rows: [
+        ["Paid tickets", "yes", "yes", "yes", "some", "some"],
+        ["RSVPs + check-in", "yes", "yes", "yes", "some", "yes"],
+        ["Attendee messaging", "yes", "yes", "yes", "yes", "some"],
+        ["Recurring community", "yes", "some", "some", "yes", "yes"],
+        ["Public discovery", "yes", "some", "yes", "yes", "yes"],
+        ["Projects after the event", "yes", "no", "no", "no", "no"]
+      ]
+    },
+    seller: {
+      columns: ["Rivr", "Etsy", "eBay", "Amazon", "Shopify", "Square", "Instagram"],
+      rows: [
+        ["Storefront + listings", "yes", "yes", "yes", "yes", "yes", "yes", "some"],
+        ["Marketplace discovery", "yes", "yes", "yes", "yes", "some", "some", "yes"],
+        ["Inventory + orders", "yes", "yes", "yes", "yes", "yes", "yes", "some"],
+        ["Buyer messaging", "yes", "yes", "yes", "some", "some", "yes", "yes"],
+        ["Online payment", "yes", "yes", "yes", "yes", "yes", "yes", "some"],
+        ["Tap-to-pay POS", "pay", "no", "no", "no", "yes", "yes", "no"],
+        ["Community context", "yes", "some", "no", "no", "no", "some", "some"]
+      ]
+    },
+    provider: {
+      columns: ["Rivr", "Square", "Luma", "Eventbrite", "Etsy", "Instagram"],
+      rows: [
+        ["Services + bookings", "yes", "yes", "some", "some", "some", "some"],
+        ["Events + tickets", "yes", "some", "yes", "yes", "no", "some"],
+        ["Products + orders", "yes", "yes", "no", "no", "yes", "some"],
+        ["Online + tap-to-pay", "pay", "yes", "some", "some", "no", "no"],
+        ["Audience messaging", "yes", "yes", "yes", "yes", "yes", "yes"],
+        ["One customer context", "yes", "some", "some", "some", "some", "some"]
+      ]
+    },
+    organization: {
+      columns: ["Rivr", "Facebook", "Discord", "Asana", "Slack", "Square", "Shopify", "Eventbrite"],
+      rows: [
+        ["Social community", "yes", "yes", "yes", "some", "yes", "some", "some", "some"],
+        ["Projects + paid work", "yes", "no", "no", "yes", "some", "some", "no", "no"],
+        ["Shared docs + knowledge", "yes", "some", "some", "yes", "some", "no", "no", "no"],
+        ["Governance + decisions", "yes", "some", "some", "no", "some", "no", "no", "no"],
+        ["Subgroup treasuries", "yes", "no", "no", "no", "no", "no", "no", "no"],
+        ["Project spend cards", "cards", "no", "no", "no", "no", "no", "no", "no"],
+        ["Events + ticketing", "yes", "yes", "yes", "some", "some", "no", "no", "yes"],
+        ["Storefront + POS", "pay", "some", "no", "no", "no", "yes", "yes", "no"],
+        ["Cross-org coordination", "yes", "no", "some", "some", "some", "no", "no", "no"]
+      ]
     }
   };
 
@@ -63,7 +125,7 @@
   var root = document.documentElement;
   var reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
 
-  function money(value) { return "$" + Number(value).toFixed(2); }
+  function money(value) { return "$" + Number(value).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
 
   function icon(key) {
     var icons = {
@@ -122,12 +184,24 @@
     if (next) next.addEventListener("click", function () { showDialog(activeAltitude + 1); });
   }
 
+  function matrixStatus(status) {
+    var labels = { yes: "✓", some: "Some", no: "—", pay: "Rivr Pay", cards: "Project cards" };
+    return '<td><span class="matrix-status matrix-status-' + status + '">' + labels[status] + '</span></td>';
+  }
+
   function renderComparison() {
     var target = document.querySelector("[data-comparison]");
     if (!target) return;
     var p = products[comparisonSelected];
+    var matrix = comparisonMatrices[comparisonSelected];
     var annual = p.stackTotal * 12 - p.yearly;
-    target.innerHTML = '<nav class="compare-tabs" aria-label="Select product comparison">' + order.map(function (key) { return '<button type="button" data-compare-product="' + key + '" aria-pressed="' + (key === comparisonSelected) + '">' + products[key].name + '</button>'; }).join("") + '</nav><div class="compare-summary"><div><small>CONSERVATIVE REPLACEMENT STACK</small><h3>' + p.name + ' vs. assembling the parts</h3></div><div class="savings-number"><span>Modeled monthly savings</span><strong>' + money(p.savings) + '</strong></div></div><div class="compare-equation"><div><small>Modeled stack</small><strong>' + money(p.stackTotal) + '</strong></div><b>−</b><div><small>Rivr ' + p.name + '</small><strong>' + money(p.monthly) + '</strong></div><b>=</b><div class="save"><small>Save each month</small><strong>' + money(p.savings) + '</strong></div></div><div class="stack-chips">' + p.stack.map(function (item) { var parts = item.split(" $"); return '<span><b>' + parts[0] + '</b> · $' + parts[1] + '</span>'; }).join("") + '<span>Yearly Rivr savings · <b>' + money(annual) + '</b></span></div>';
+    var signal = p.savings === null ? '<div class="savings-number"><span>Familiar channel cost</span><strong>$0 base</strong></div>' : '<div class="savings-number"><span>Modeled monthly savings</span><strong>' + money(p.savings) + '</strong></div>';
+    var equation = p.savings === null
+      ? '<div class="compare-equation"><div><small>Separate channels</small><strong>4 apps</strong></div><b>→</b><div><small>Rivr Collaborator</small><strong>' + money(p.monthly) + '</strong></div><b>=</b><div class="save"><small>Connected result</small><strong>1 context</strong></div></div>'
+      : '<div class="compare-equation"><div><small>Recognizable app stack</small><strong>' + money(p.stackTotal) + '</strong></div><b>−</b><div><small>Rivr ' + p.name + '</small><strong>' + money(p.monthly) + '</strong></div><b>=</b><div class="save"><small>Save each month</small><strong>' + money(p.savings) + '</strong></div></div>';
+    var table = '<div class="home-matrix-scroll" tabindex="0" aria-label="Scrollable ' + p.name + ' competitor feature table"><table class="home-matrix"><thead><tr><th scope="col">Feature</th>' + matrix.columns.map(function (column, index) { return '<th scope="col"' + (index === 0 ? ' class="rivr-head"' : '') + '>' + column + '</th>'; }).join("") + '</tr></thead><tbody>' + matrix.rows.map(function (row) { return '<tr><th scope="row">' + row[0] + '</th>' + row.slice(1).map(matrixStatus).join("") + '</tr>'; }).join("") + '</tbody></table></div>';
+    var chips = '<div class="stack-chips">' + p.stack.map(function (item) { return '<span><b>' + item.name + '</b> · ' + item.cost + '</span>'; }).join("") + (p.savings === null ? '<span>Free channels are <b>not counted as savings</b></span>' : '<span>Yearly Rivr savings · <b>' + money(annual) + '</b></span>') + '</div>';
+    target.innerHTML = '<nav class="compare-tabs" aria-label="Select product comparison">' + order.map(function (key) { return '<button type="button" data-compare-product="' + key + '" aria-pressed="' + (key === comparisonSelected) + '">' + products[key].name + '</button>'; }).join("") + '</nav>' + table + '<div class="compare-summary"><div><small>RECOGNIZABLE REPLACEMENT STACK</small><h3>' + p.name + ' vs. assembling the apps</h3></div>' + signal + '</div>' + equation + chips;
     target.querySelectorAll("[data-compare-product]").forEach(function (button) { button.addEventListener("click", function () { comparisonSelected = button.dataset.compareProduct; renderComparison(); }); });
   }
 
