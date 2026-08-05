@@ -5,12 +5,44 @@
   var header = document.querySelector("[data-header]");
   var menuButton = document.querySelector(".menu-button");
   var nav = document.querySelector(".primary-nav");
+  var flowSection = document.querySelector(".flow-section");
+  var flowLines = Array.from(document.querySelectorAll(".flow-line"));
+  var flowNodes = Array.from(document.querySelectorAll(".flow-node"));
+  var flowOutput = document.querySelector("[data-flow-output]");
+  var reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
   var ticking = false;
+
+  function clamp(value) {
+    return Math.min(1, Math.max(0, value));
+  }
+
+  function updateFlowState() {
+    if (!flowSection) return;
+    var progress = 1;
+    if (!reducedMotion.matches) {
+      var rect = flowSection.getBoundingClientRect();
+      var travel = Math.max(1, flowSection.offsetHeight - innerHeight);
+      progress = clamp(-rect.top / travel);
+    }
+
+    flowSection.style.setProperty("--flow-progress", progress.toFixed(4));
+    flowLines.forEach(function (line, index) {
+      var start = index === 0 ? -.18 : index * .25;
+      var reveal = clamp((progress - start) / .18);
+      line.style.setProperty("--line-reveal", reveal.toFixed(4));
+    });
+    flowNodes.forEach(function (node, index) {
+      var reveal = clamp((progress - (.08 + index * .2)) / .16);
+      node.style.setProperty("--node-reveal", reveal.toFixed(4));
+    });
+    if (flowOutput) flowOutput.textContent = Math.round(progress * 100) + "%";
+  }
 
   function updateScrollState() {
     var max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
     root.style.setProperty("--progress", Math.min(1, window.scrollY / max).toFixed(4));
     if (header) header.classList.toggle("scrolled", window.scrollY > 36);
+    updateFlowState();
     ticking = false;
   }
 

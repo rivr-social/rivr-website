@@ -12,6 +12,12 @@
   initial-value: 0deg;
 }
 
+@property --flow-progress {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+
 @layer reset {
   *, *::before, *::after { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -254,19 +260,26 @@
   .mini-image-card > div { display: flex; flex-direction: column; justify-content: flex-end; padding: 28px; }
   .mini-image-card h3 { margin-top: 12px; }
 
-  .flow-section { position: relative; min-height: 180vh; color: var(--white); background: var(--teal-950); }
+  .flow-section { --flow-progress: 0; position: relative; min-height: 220vh; color: var(--white); background: var(--teal-950); }
   .flow-sticky { position: sticky; top: 0; min-height: 100svh; display: grid; align-content: center; overflow: hidden; }
   .flow-copy { position: relative; z-index: 2; pointer-events: none; }
   .flow-copy h2 { max-width: 830px; margin-top: 32px; font-size: clamp(2.8rem, 5.6vw, 5.7rem); }
-  .flow-copy > p:last-child { max-width: 590px; margin-top: 30px; color: rgba(248,255,253,.68); font-size: 1.1rem; }
+  .flow-line { display: block; opacity: calc(.2 + var(--line-reveal, 0) * .8); transform: translateX(calc((1 - var(--line-reveal, 0)) * -22px)); transition: opacity .12s linear, transform .12s linear; }
+  .flow-copy h2 + p { max-width: 590px; margin-top: 30px; color: rgba(248,255,253,.68); font-size: 1.1rem; }
+  .flow-scroll-cue { display: grid; grid-template-columns: auto minmax(90px, 230px) 38px; align-items: center; gap: 14px; width: min(100%, 400px); margin-top: 40px; color: rgba(248,255,253,.65); font-size: .67rem; font-weight: 720; letter-spacing: .13em; text-transform: uppercase; }
+  .flow-scroll-cue i { position: relative; height: 2px; overflow: hidden; background: rgba(255,255,255,.16); }
+  .flow-scroll-cue b { position: absolute; inset: 0; background: var(--aqua); transform: scaleX(var(--flow-progress)); transform-origin: left; box-shadow: 0 0 12px var(--teal-300); }
+  .flow-scroll-cue output { font: inherit; font-variant-numeric: tabular-nums; text-align: right; }
   .flow-field { position: absolute; inset: 0; opacity: .96; }
-  .flow-field::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 73% 50%, rgba(52,170,163,.17), transparent 44%); }
+  .flow-field::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at calc(58% + var(--flow-progress) * 20%) 50%, rgba(52,170,163,.22), transparent 44%); }
   .flow-field svg { position: absolute; right: -7%; bottom: 0; width: min(74vw, 1040px); height: 82%; overflow: visible; }
   .flow-path { fill: none; stroke: rgba(134,216,207,.3); stroke-width: 1.5; stroke-dasharray: 4 10; }
+  .flow-path-active { fill: none; stroke: var(--teal-300); stroke-width: 2.4; stroke-dasharray: 1; stroke-dashoffset: calc(1 - var(--flow-progress)); filter: drop-shadow(0 0 7px rgba(134,216,207,.75)); }
+  .path-two-active { stroke-dashoffset: calc(1 - var(--flow-progress) * .92); opacity: .72; }
   .flow-dot { fill: var(--aqua); filter: drop-shadow(0 0 9px var(--teal-300)); }
-  .dot-one { offset-path: path("M105 510C270 490 274 174 476 186S728 520 1090 350"); }
-  .dot-two { offset-path: path("M90 230C350 80 548 560 795 430s200-300 330-260"); }
-  .flow-node { position: absolute; display: grid; min-width: 150px; padding: 17px 20px; border: 1px solid rgba(255,255,255,.17); border-radius: 18px; background: rgba(255,255,255,.07); box-shadow: inset 0 1px rgba(255,255,255,.08); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); font-size: .83rem; font-weight: 720; }
+  .dot-one { offset-path: path("M105 510C270 490 274 174 476 186S728 520 1090 350"); offset-distance: calc(var(--flow-progress) * 100%); offset-rotate: 0deg; }
+  .dot-two { offset-path: path("M90 230C350 80 548 560 795 430s200-300 330-260"); offset-distance: calc(var(--flow-progress) * 92%); offset-rotate: 0deg; }
+  .flow-node { --node-reveal: 0; position: absolute; display: grid; min-width: 150px; padding: 17px 20px; opacity: calc(.16 + var(--node-reveal) * .84); transform: translateY(calc((1 - var(--node-reveal)) * 20px)) scale(calc(.95 + var(--node-reveal) * .05)); border: 1px solid rgba(255,255,255,calc(.12 + var(--node-reveal) * .2)); border-radius: 18px; background: rgba(255,255,255,calc(.035 + var(--node-reveal) * .07)); box-shadow: inset 0 1px rgba(255,255,255,.08), 0 0 calc(var(--node-reveal) * 34px) rgba(52,170,163,.18); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); font-size: .83rem; font-weight: 720; transition: opacity .12s linear, transform .12s linear; }
   .flow-node small { margin-top: 4px; color: rgba(248,255,253,.58); font-size: .66rem; font-weight: 500; }
   .node-person { right: 32%; top: 16%; }
   .node-event { right: 8%; top: 34%; }
@@ -348,14 +361,11 @@
   @keyframes river-dash { to { stroke-dashoffset: -170; } }
   @keyframes drift { 50% { transform: scale(1.13) translate3d(-1.5%, 1%, 0); } }
   @keyframes orbit { to { transform: translate(-50%, -50%) rotate(1turn); } }
-  @keyframes dot-one { to { offset-distance: 100%; } }
 
   .river-lines path { animation: river-dash 13s linear infinite; }
   .river-lines path:nth-child(2) { animation-duration: 18s; animation-direction: reverse; }
   .river-lines path:nth-child(3) { animation-duration: 22s; }
   .hero-image img { animation: drift 18s ease-in-out infinite; }
-  .dot-one { animation: dot-one 7s linear infinite; }
-  .dot-two { animation: dot-one 9s -3s linear infinite; }
   .orbit-one { animation: orbit 45s linear infinite; }
   .orbit-two { animation: orbit 36s linear infinite reverse; }
 
@@ -426,8 +436,9 @@
     .bento-feature { min-height: 580px; }
     .action-card { min-height: 390px; }
     .mini-image-card { min-height: 420px; }
-    .flow-section { min-height: 150vh; }
+    .flow-section { min-height: 190vh; }
     .flow-copy h2 { font-size: clamp(2.7rem, 12vw, 4.2rem); }
+    .flow-scroll-cue { grid-template-columns: auto minmax(70px, 1fr) 34px; max-width: 320px; }
     .culture-statement { padding-bottom: 20px; }
     .world-principles { grid-template-columns: 1fr; }
     .world-principles article > span { margin-bottom: 26px; }
@@ -450,5 +461,7 @@
     html { scroll-behavior: auto; }
     *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .001ms !important; }
     .ambient-cursor { display: none; }
+    .flow-section { --flow-progress: 1 !important; min-height: 100svh; }
+    .flow-line, .flow-node { --line-reveal: 1 !important; --node-reveal: 1 !important; }
   }
 }
