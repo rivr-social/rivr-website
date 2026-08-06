@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Rivr — Find your people. Move the work.</title>
+  <meta name="description" content="Rivr is a cooperative social coordination network where people find one another, share skills and resources, run events, exchange value, and land projects across organizations.">
+  <meta name="theme-color" content="#003333">
+  <meta property="og:title" content="Rivr — Find your people. Move the work.">
+  <meta property="og:description" content="One connected place for people, groups, events, projects, exchange, and governance.">
+  <meta property="og:image" content="https://draft.rivr.social/assets/connected-place.jpg">
+  <meta property="og:url" content="https://draft.rivr.social/integrated/">
+  <link rel="icon" href="/favicon.png?v=1" type="image/png">
+  <link rel="stylesheet" href="/draft.css?v=6">
+  <link rel="stylesheet" href="/integrated/integrated.css?v=1">
+  <script src="/draft.js?v=6" defer></script>
+  <script src="/integrated/integrated.js?v=1" defer></script>
+</head>
+<body class="public-integrated">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <svg class="glass-defs" width="0" height="0" aria-hidden="true">
+    <defs>
+      <filter id="glass-distortion-shell" x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox">
+        <feTurbulence type="fractalNoise" baseFrequency="0.01 0.01" numOctaves="1" seed="5" result="turbulence"/>
+        <feComponentTransfer in="turbulence" result="mapped"><feFuncR type="gamma" amplitude="1" exponent="10" offset="0.5"/><feFuncG type="gamma" amplitude="0" exponent="1" offset="0"/><feFuncB type="gamma" amplitude="0" exponent="1" offset="0.5"/></feComponentTransfer>
+        <feGaussianBlur in="turbulence" stdDeviation="2" result="softMap"/>
+        <feSpecularLighting in="softMap" surfaceScale="4" specularConstant="0.9" specularExponent="80" lighting-color="white" result="specLight"><fePointLight x="-200" y="-200" z="300"/></feSpecularLighting>
+        <feComposite in="specLight" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="litImage"/>
+        <feDisplacementMap in="SourceGraphic" in2="softMap" scale="36" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <filter id="glass-distortion" x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox">
+        <feTurbulence type="fractalNoise" baseFrequency="0.01 0.01" numOctaves="1" seed="5" result="turbulence"/>
+        <feComponentTransfer in="turbulence" result="mapped"><feFuncR type="gamma" amplitude="1" exponent="10" offset="0.5"/><feFuncG type="gamma" amplitude="0" exponent="1" offset="0"/><feFuncB type="gamma" amplitude="0" exponent="1" offset="0.5"/></feComponentTransfer>
+        <feGaussianBlur in="turbulence" stdDeviation="3" result="softMap"/>
+        <feSpecularLighting in="softMap" surfaceScale="5" specularConstant="1" specularExponent="100" lighting-color="white" result="specLight"><fePointLight x="-200" y="-200" z="300"/></feSpecularLighting>
+        <feComposite in="specLight" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="litImage"/>
+        <feDisplacementMap in="SourceGraphic" in2="softMap" scale="150" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <filter id="glass-distortion-strong" x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox">
+        <feTurbulence type="fractalNoise" baseFrequency="0.01 0.01" numOctaves="1" seed="5" result="turbulence"/>
+        <feComponentTransfer in="turbulence" result="mapped"><feFuncR type="gamma" amplitude="1" exponent="10" offset="0.5"/><feFuncG type="gamma" amplitude="0" exponent="1" offset="0"/><feFuncB type="gamma" amplitude="0" exponent="1" offset="0.5"/></feComponentTransfer>
+        <feGaussianBlur in="turbulence" stdDeviation="3" result="softMap"/>
+        <feSpecularLighting in="softMap" surfaceScale="5" specularConstant="1" specularExponent="100" lighting-color="white" result="specLight"><fePointLight x="-200" y="-200" z="300"/></feSpecularLighting>
+        <feComposite in="specLight" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="litImage"/>
+        <feDisplacementMap in="SourceGraphic" in2="softMap" scale="80" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <header class="site-header liquid-glass liquid-glass-shell" data-header>
+    <span class="liquid-glass-effect-shell"></span><span class="liquid-glass-tint"></span><span class="liquid-glass-shine"></span>
+    <a class="brand script-brand" href="#top" aria-label="Rivr home"><img src="/integrated/assets/rivr-script.png" alt="Rivr" width="102" height="39"></a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="primary-nav"><span>Menu</span><i aria-hidden="true"></i></button>
+    <nav id="primary-nav" class="primary-nav" aria-label="Primary navigation">
+      <a href="#paths">Find your path</a>
+      <a href="#flow">How it flows</a>
+      <a href="#platform">Platform</a>
+      <a href="#compare">Compare</a>
+      <a class="nav-cta" href="https://app.rivr.social">Enter Rivr <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="integrated-hero" id="top" aria-labelledby="hero-title">
+      <div class="integrated-hero-media" aria-hidden="true"><img src="/assets/connected-place.jpg" alt=""></div>
+      <div class="ray-field" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="section-wrap integrated-hero-grid">
+        <div class="integrated-hero-copy">
+          <p class="eyebrow">A cooperative social coordination network</p>
+          <h1 id="hero-title">Find your people.<br><em>Move the work.</em><br>Keep value in motion.</h1>
+          <p>Rivr brings people, groups, events, projects, exchange, and governance into one shared context—so the next useful connection can actually lead somewhere.</p>
+          <div class="hero-actions"><a class="button button-primary" href="#paths">Find your path <span>↓</span></a><a class="button button-glass" href="https://app.rivr.social">Explore Rivr <span>↗</span></a></div>
+        </div>
+        <div class="hero-lens liquid-glass" data-lens>
+          <span class="liquid-glass-effect-strong"></span><span class="liquid-glass-tint"></span><span class="liquid-glass-shine"></span>
+          <div class="lens-core"><img src="/assets/rivr-symbol-light.png" alt=""><span>FLOW LOCAL</span><strong>One connection<br>creates the next.</strong><small>CONNECT GLOBAL</small></div>
+          <span class="lens-orbit orbit-one">NEED</span><span class="lens-orbit orbit-two">OFFER</span><span class="lens-orbit orbit-three">PROJECT</span><span class="lens-orbit orbit-four">PLACE</span>
+        </div>
+      </div>
+      <div class="primitive-rail" aria-label="Rivr connects"><a href="#platform">People</a><i></i><a href="#platform">Groups</a><i></i><a href="#platform">Events</a><i></i><a href="#platform">Projects</a><i></i><a href="#platform">Exchange</a><i></i><a href="#platform">Governance</a></div>
+    </section>
+
+    <section class="path-section product-section" id="paths" aria-labelledby="paths-title">
+      <div class="section-wrap">
+        <div class="section-heading split-heading">
+          <div><p class="eyebrow">Start with the outcome</p><h2 id="paths-title">What do you want to <em>make happen?</em></h2></div>
+          <div><p>Pick the surface that solves today’s problem. Click once for the tools, again for the community effect, and again for the wider possibility.</p><div class="billing-toggle" aria-label="Billing period"><button type="button" data-billing="monthly" aria-pressed="true">Monthly</button><button type="button" data-billing="yearly" aria-pressed="false">Yearly <span>save up to $161</span></button></div></div>
+        </div>
+        <div class="product-deck" data-product-deck aria-label="Rivr products"></div>
+        <p class="altitude-key"><span>01 · solve it now</span><span>02 · grow it together</span><span>03 · change the conditions</span></p>
+      </div>
+    </section>
+
+    <section class="healing-section" aria-labelledby="healing-title">
+      <div class="healing-photo" aria-hidden="true"><img src="/assets/culture.jpg" alt=""></div>
+      <div class="section-wrap">
+        <p class="eyebrow">Built for the life behind the screen</p>
+        <h2 id="healing-title">Less extraction.<br><em>More circulation.</em></h2>
+        <div class="healing-grid">
+          <details class="healing-card liquid-glass"><summary><span>From isolation</span><strong>Find a real way in.</strong><i>＋</i></summary><div><p>Discover people, groups, events, and work through shared place and purpose—not an attention contest.</p><small>Belonging → contribution → trust</small></div></details>
+          <details class="healing-card liquid-glass"><summary><span>From fragmentation</span><strong>Carry context forward.</strong><i>＋</i></summary><div><p>Let an event become a group, a need become an offer, and a conversation become a project without starting over.</p><small>Context → coordination → momentum</small></div></details>
+          <details class="healing-card liquid-glass"><summary><span>From platform leakage</span><strong>Keep value moving nearby.</strong><i>＋</i></summary><div><p>Offer skills, goods, services, and gigs where the relationships and projects around them remain visible.</p><small>Exchange → capacity → resilience</small></div></details>
+          <details class="healing-card liquid-glass"><summary><span>From powerlessness</span><strong>Shape the space you share.</strong><i>＋</i></summary><div><p>Groups can coordinate roles, resources, treasuries, and decisions with tools designed for participation.</p><small>Voice → agency → stewardship</small></div></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="flow-section" id="flow" aria-labelledby="flow-title">
+      <div class="flow-sticky">
+        <div class="flow-copy section-wrap">
+          <p class="eyebrow">One context creates the next possibility</p>
+          <h2 id="flow-title"><span class="flow-line">A need meets an offer.</span><span class="flow-line">An event finds its people.</span><span class="flow-line">A project gains momentum.</span></h2>
+          <p class="flow-note">Keep scrolling. Watch the parts become a path—not another feed.</p>
+          <div class="flow-progress-label" aria-hidden="true"><span>Follow the flow</span><i><b></b></i><output data-flow-output>0%</output></div>
+        </div>
+        <div class="flow-field" aria-hidden="true">
+          <svg viewBox="0 0 1200 720" preserveAspectRatio="xMidYMid meet"><path class="flow-path" d="M80 540C245 500 270 155 475 190S730 560 1120 330"/><path class="flow-path active-path" pathLength="1" d="M80 540C245 500 270 155 475 190S730 560 1120 330"/><path class="flow-path second" d="M70 250C315 70 520 590 790 430s205-300 350-250"/><path class="flow-path active-path second-active" pathLength="1" d="M70 250C315 70 520 590 790 430s205-300 350-250"/></svg>
+          <span class="flow-node node-1">Person<small>names a need</small></span><span class="flow-node node-2">Offer<small>arrives in context</small></span><span class="flow-node node-3">Project<small>finds capacity</small></span><span class="flow-node node-4">Place<small>grows stronger</small></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="platform-section" id="platform" aria-labelledby="platform-title">
+      <div class="section-wrap">
+        <div class="section-heading split-heading"><div><p class="eyebrow">A foundational dashboard for shared work</p><h2 id="platform-title">Everything useful.<br><em>Still in context.</em></h2></div><p>Rivr is not six disconnected apps under one logo. Each surface understands the people, places, and work around it.</p></div>
+        <div class="primitive-grid">
+          <article data-primitive="people"><span>01</span><h3>People</h3><p>Skills, needs, trust, and contribution.</p><button type="button">See the layer <i>↗</i></button><div class="primitive-detail"><strong>Know who can help.</strong><p>Profiles carry skills, badges, roles, availability, offerings, and the contribution history people choose to share.</p></div></article>
+          <article data-primitive="groups"><span>02</span><h3>Groups</h3><p>Membership, memory, and shared purpose.</p><button type="button">See the layer <i>↗</i></button><div class="primitive-detail"><strong>Give belonging structure.</strong><p>Groups hold conversation, documents, roles, calendars, projects, resources, and decisions in one durable place.</p></div></article>
+          <article data-primitive="events"><span>03</span><h3>Events</h3><p>Gatherings that lead somewhere.</p><button type="button">See the layer <i>↗</i></button><div class="primitive-detail"><strong>Keep the energy after the room empties.</strong><p>Publish, ticket, RSVP, message, check in, and connect attendees with the next group or project.</p></div></article>
+          <article data-primitive="projects"><span>04</span><h3>Projects</h3><p>Work, roles, resources, and outcomes.</p><button type="button">See the layer <i>↗</i></button><div class="primitive-detail"><strong>Turn intention into owned work.</strong><p>Connect tasks, gigs, contributors, documents, budgets, decisions, and results across organizations.</p></div></article>
+          <article data-primitive="exchange"><span>05</span><h3>Exchange</h3><p>Needs, offers, goods, services, and pay.</p><button type="button">See the layer <i>↗</i></button><div class="primitive-detail"><strong>Let value find where it is useful.</strong><p>Publish offerings, discover needs, manage orders, book services, and settle payment without losing community context.</p></div></article>
+          <article data-primitive="governance"><span>06</span><h3>Governance</h3><p>Voice, decisions, treasuries, and care.</p><button type="button">See the layer <i>↗</i></button><div class="primitive-detail"><strong>Make shared power usable.</strong><p>Manage membership, proposals, ballots, roles, permissions, treasuries, records, and accountable follow-through.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="money-section integrated-money" id="money" aria-labelledby="money-title">
+      <div class="money-backdrop" aria-hidden="true"></div>
+      <div class="section-wrap money-layout">
+        <div class="money-intro"><p class="eyebrow">Rivr Pay · Stripe-powered</p><h2 id="money-title">Money can keep its <em>meaning.</em></h2><p>Accept, settle, reserve, and spend—without losing what the money was for.</p></div>
+        <div class="money-grid">
+          <article class="money-card liquid-glass"><span class="liquid-glass-distortion"></span><span class="liquid-glass-tint"></span><span class="liquid-glass-shine"></span><div><i>01</i><small>ACCEPT</small><h3>Tap to pay.</h3><p>Accept contactless card-present payment from a compatible phone.</p><span class="status-pill">Native companion app</span></div></article>
+          <article class="money-card liquid-glass"><span class="liquid-glass-distortion"></span><span class="liquid-glass-tint"></span><span class="liquid-glass-shine"></span><div><i>02</i><small>SETTLE</small><h3>Pay the people.</h3><p>Orders, receipts, connected payouts, and work stay together.</p><span class="status-pill">Stripe Connect</span></div></article>
+          <article class="money-card liquid-glass"><span class="liquid-glass-distortion"></span><span class="liquid-glass-tint"></span><span class="liquid-glass-shine"></span><div><i>03</i><small>RESERVE</small><h3>Plan for taxes.</h3><p>Choose a withholding rate and reserve part of each payout automatically.</p><span class="status-pill">Member controlled</span></div></article>
+          <article class="money-card liquid-glass"><span class="liquid-glass-distortion"></span><span class="liquid-glass-tint"></span><span class="liquid-glass-shine"></span><div><i>04</i><small>CONTROL</small><h3>Fund the work.</h3><p>Use treasuries and Stripe-issued cards by subgroup or project.</p><span class="status-pill">Treasury + Issuing</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="comparison-section" id="compare" aria-labelledby="compare-title">
+      <div class="section-wrap">
+        <div class="section-heading comparison-heading"><div><p class="eyebrow">One subscription · fewer fragments</p><h2 id="compare-title">Compare the features.<br><em>Then count the apps.</em></h2></div><div><p>Choose a product to compare Rivr with the familiar apps people assemble for the same job.</p><a href="/concepts/comparison/">Open the research notes <span>↗</span></a></div></div>
+        <div class="comparison-shell liquid-glass"><span class="liquid-glass-distortion"></span><span class="liquid-glass-tint"></span><span class="liquid-glass-shine"></span><div data-comparison></div></div>
+      </div>
+    </section>
+
+    <section class="cooperative-section" aria-labelledby="cooperative-title">
+      <div class="cooperative-photo" aria-hidden="true"><img src="/assets/community-landscape.jpg" alt=""></div>
+      <div class="section-wrap cooperative-grid">
+        <div><p class="eyebrow">The tool should serve the movement</p><h2 id="cooperative-title">Built to be shaped by the people who use it.</h2><p>Rivr is structured as a cooperative public-benefit platform: the network can grow without treating its communities as inventory.</p></div>
+        <div class="trust-stack">
+          <article class="liquid-glass"><span class="liquid-glass-distortion"></span><span class="liquid-glass-tint"></span><span class="liquid-glass-shine"></span><div><span>01</span><h3>Member voice</h3><p>One member, one vote keeps participation distinct from financial power.</p></div></article>
+          <article class="liquid-glass"><span class="liquid-glass-distortion"></span><span class="liquid-glass-tint"></span><span class="liquid-glass-shine"></span><div><span>02</span><h3>Local sovereignty</h3><p>Communities can keep their identity, rules, memory, and center of gravity.</p></div></article>
+          <article class="liquid-glass"><span class="liquid-glass-distortion"></span><span class="liquid-glass-tint"></span><span class="liquid-glass-shine"></span><div><span>03</span><h3>Connected by consent</h3><p>Knowledge and possibility can travel without flattening every place into one feed.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="integrated-close" aria-labelledby="close-title">
+      <div class="integrated-close-media" aria-hidden="true"><img src="/assets/hero-water.webp" alt=""></div>
+      <div class="section-wrap"><img class="close-script" src="/integrated/assets/rivr-script.png" alt="Rivr"><p class="eyebrow">Flow local · connect global</p><h2 id="close-title">The best way to know the Rivr<br>is to <em>get in it.</em></h2><div><a class="button button-primary" href="#paths">Choose your path <span>↑</span></a><a class="button button-glass" href="https://app.rivr.social">Enter Rivr <span>↗</span></a></div></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div><a class="footer-brand" href="#top"><img src="/assets/rivr-symbol-light.png" alt=""><span>Rivr</span></a><p>Social coordination infrastructure for people, communities, and places.</p></div><nav aria-label="Footer navigation"><a href="#paths">Products</a><a href="#platform">Platform</a><a href="/concepts/comparison/">Research</a><a href="https://rivr.social/privacy">Privacy</a><a href="https://rivr.social/terms">Terms</a><a href="mailto:admin@rivr.social">Contact</a></nav><div class="footer-meta"><span>© 2026 Rivr Social</span><span>Regenerative Interconnected Vibrant Regions</span></div></footer>
+
+  <dialog class="product-dialog" data-product-dialog aria-labelledby="dialog-title"><button class="dialog-close" type="button" data-dialog-close aria-label="Close product details">×</button><div data-dialog-content></div></dialog>
+</body>
+</html>
