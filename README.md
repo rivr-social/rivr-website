@@ -55,7 +55,9 @@ Every indexable page carries a unique title and description, a canonical URL
 on `https://rivr.social`, Open Graph and Twitter tags, and JSON-LD
 (Organization, WebSite, SoftwareApplication and FAQPage on the home page;
 WebPage and BreadcrumbList elsewhere). `robots.txt` and `sitemap.xml` list the
-twelve public routes.
+twelve public routes. `9f1ae9a111011ba9801288d33b9a84c9.txt` is the IndexNow key file; after a deploy,
+`scripts/indexnow.sh` tells Bing, Yandex and the other IndexNow engines which
+URLs changed.
 
 ## Local preview
 
