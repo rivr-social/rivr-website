@@ -72,3 +72,9 @@ The styling is derived from `repos/global/src/app/globals.css`, including Inter
 typography, the light crystalline gradient (`#f9d294`, `#f0cc8b`, `#c69a62`,
 `#794e1b`), the dark teal gradient, glass tints, focus treatment, and responsive
 layout behavior. The website does not import application code at runtime.
+
+## Current site
+
+The 2026-09-30 rebuild keeps every page and section in this inventory, with the
+product-led marketing page as the home. The reference-site sections of the old
+home now sit below the product narrative on `/`.

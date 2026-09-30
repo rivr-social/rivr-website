@@ -128,7 +128,6 @@
   var billing = "monthly";
   var activeAltitude = 0;
   var furthestAltitude = 0;
-  var root = document.documentElement;
   var reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
 
   var brandAssets = {
@@ -256,14 +255,6 @@
   if (close && dialog) close.addEventListener("click", function () { dialog.close(); });
   if (dialog) dialog.addEventListener("click", function (event) { if (event.target === dialog) dialog.close(); });
 
-  var header = document.querySelector("[data-header]");
-  var menuButton = document.querySelector(".menu-button");
-  var nav = document.querySelector(".primary-nav");
-  if (menuButton && nav) {
-    menuButton.addEventListener("click", function () { var open = nav.classList.toggle("open"); menuButton.setAttribute("aria-expanded", String(open)); });
-    nav.addEventListener("click", function (event) { if (event.target.closest("a")) { nav.classList.remove("open"); menuButton.setAttribute("aria-expanded", "false"); } });
-  }
-
   var flowSection = document.querySelector(".flow-section");
   var flowLines = Array.from(document.querySelectorAll(".flow-line"));
   var flowNodes = Array.from(document.querySelectorAll(".flow-node"));
@@ -284,19 +275,20 @@
     if (flowOutput) flowOutput.textContent = Math.round(progress * 100) + "%";
   }
   function updateScroll() {
-    var max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
-    root.style.setProperty("--progress", Math.min(1, scrollY / max).toFixed(4));
-    if (header) header.classList.toggle("scrolled", scrollY > 35);
     updateFlow();
     ticking = false;
   }
   function requestUpdate() { if (!ticking) { ticking = true; requestAnimationFrame(updateScroll); } }
-  addEventListener("scroll", requestUpdate, { passive: true });
-  addEventListener("resize", requestUpdate, { passive: true });
-  addEventListener("keydown", function (event) { if (event.key === "Escape" && nav) { nav.classList.remove("open"); if (menuButton) menuButton.setAttribute("aria-expanded", "false"); } });
+  if (flowSection) {
+    addEventListener("scroll", requestUpdate, { passive: true });
+    addEventListener("resize", requestUpdate, { passive: true });
+  }
 
+  // Header, menu, and scroll-progress behaviour live in site.js; this only marks the section in view.
+  function sectionHref(link) { return link.getAttribute("href").replace(/^\//, ""); }
   if ("IntersectionObserver" in window) {
-    var sectionObserver = new IntersectionObserver(function (entries) { entries.forEach(function (entry) { if (!entry.isIntersecting) return; document.querySelectorAll('.primary-nav a[href^="#"]').forEach(function (link) { link.toggleAttribute("aria-current", link.getAttribute("href") === "#" + entry.target.id); }); }); }, { rootMargin: "-43% 0px -50%", threshold: 0 });
+    var sectionLinks = Array.from(document.querySelectorAll('.primary-nav a[href^="#"], .primary-nav a[href^="/#"]'));
+    var sectionObserver = new IntersectionObserver(function (entries) { entries.forEach(function (entry) { if (!entry.isIntersecting) return; sectionLinks.forEach(function (link) { if (sectionHref(link) === "#" + entry.target.id) link.setAttribute("aria-current", "true"); else link.removeAttribute("aria-current"); }); }); }, { rootMargin: "-43% 0px -50%", threshold: 0 });
     document.querySelectorAll("main section[id]").forEach(function (section) { sectionObserver.observe(section); });
   }
 
