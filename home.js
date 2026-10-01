@@ -3,7 +3,7 @@
 
   var products = {
     collaborator: {
-      number: "01", name: "Collaborator", segment: "Participants + contributors", invitation: "Find where you belong—and a real way to contribute.", capability: "Participate + contribute", monthly: 13.06, yearly: 135.72, url: "https://app.rivr.social/products/membership-basic",
+      number: "01", name: "Collaborator", segment: "Participants + contributors", invitation: "Find where you belong—and a real way to contribute.", capability: "Participate + contribute", monthly: 11, yearly: 110, url: "https://app.rivr.social/products/membership-basic",
       features: ["Community profile", "Events and groups", "Direct messaging", "Badges and project jobs"],
       altitudes: [
         { label: "For you", title: "Find your people. Find your part.", copy: "Discover events, groups, and gigs that match what you care about—then turn interest into contribution.", outcomes: ["See what fits", "Join with context", "Build a trusted record"] },
@@ -13,44 +13,44 @@
       stack: [{ name: "Facebook", cost: "$0 base" }, { name: "Instagram", cost: "$0 base" }, { name: "LinkedIn", cost: "$0 basic" }, { name: "Meetup", cost: "$0 member" }, { name: "Upwork", cost: "0–15% freelancer fee" }, { name: "Fiverr", cost: "20% of seller earnings" }], stackTotal: 0, savings: null
     },
     host: {
-      number: "02", name: "Host", segment: "Conveners + event makers", invitation: "Fill the room. Keep the community growing after it empties.", capability: "Ticket + convene", monthly: 24.06, yearly: 222.72, url: "https://app.rivr.social/products/membership-host",
+      number: "02", name: "Host", segment: "Conveners + event makers", invitation: "Fill the room. Keep the community growing after it empties.", capability: "Ticket + convene", monthly: 22, yearly: 220, url: "https://app.rivr.social/products/membership-host",
       features: ["Paid event tickets", "RSVPs and waitlists", "Event communication", "Branding and analytics"],
       altitudes: [
         { label: "For your event", title: "Fill the room—and build beyond it.", copy: "Ticket, invite, manage, and follow up from one place.", outcomes: ["Sell tickets", "Manage the room", "Bring people back"] },
         { label: "In community", title: "Turn gatherings into belonging.", copy: "Connect every event to the people, groups, and next actions around it.", outcomes: ["Welcome newcomers", "Create continuity", "Grow shared practice"] },
         { label: "Across the network", title: "Let local culture travel.", copy: "Link gatherings across places without stripping away what makes each one local.", outcomes: ["Root culture in place", "Move knowledge through experience", "Connect hosts across regions"] }
       ],
-      stack: [{ name: "Luma Plus", cost: "$59" }, { name: "Meetup Standard", cost: "$14.58" }, { name: "Facebook + Instagram", cost: "$0 base" }], stackTotal: 73.58, savings: 49.52
+      stack: [{ name: "Luma Plus", cost: "$59" }, { name: "Meetup Standard", cost: "$14.58" }, { name: "Facebook + Instagram", cost: "$0 base" }], stackTotal: 73.58, savings: 51.58
     },
     seller: {
-      number: "03", name: "Seller", segment: "Makers + independent sellers", invitation: "Put your offering where trust and buyers already meet.", capability: "Offer + earn", monthly: 24.06, yearly: 207.72, url: "https://app.rivr.social/products/membership-seller",
+      number: "03", name: "Seller", segment: "Makers + independent sellers", invitation: "Put your offering where trust and buyers already meet.", capability: "Offer + earn", monthly: 22, yearly: 220, url: "https://app.rivr.social/products/membership-seller",
       features: ["Paid offerings and listings", "Storefront and inventory", "Orders and communication", "Rivr Pay tap-to-pay rail"],
       altitudes: [
         { label: "For your work", title: "Sell where trust already exists.", copy: "Publish offerings, manage orders, and get paid online or through Rivr Pay.", outcomes: ["Open your storefront", "Manage every order", "Accept payment anywhere"] },
         { label: "In community", title: "Keep more value moving nearby.", copy: "Put your offering beside the people, projects, and needs that give it meaning.", outcomes: ["Reach through shared context", "Build durable customers", "Strengthen local exchange"] },
         { label: "Across the network", title: "Connect resilient local markets.", copy: "Help independent sellers grow across places without surrendering their relationships.", outcomes: ["Link values-aligned markets", "Diversify local economies", "Keep commerce accountable"] }
       ],
-      stack: [{ name: "Square Plus", cost: "$49" }, { name: "Etsy", cost: "sales fees" }, { name: "Craigslist", cost: "$0 in most categories" }, { name: "Instagram", cost: "$0 base" }], stackTotal: 49, savings: 24.94
+      stack: [{ name: "Square Plus", cost: "$49" }, { name: "Etsy", cost: "sales fees" }, { name: "Craigslist", cost: "$0 in most categories" }, { name: "Instagram", cost: "$0 base" }], stackTotal: 49, savings: 27
     },
     provider: {
-      number: "04", name: "Provider", segment: "Operators who host + sell", invitation: "Run events, services, and sales from one trusted presence.", capability: "Host + sell", monthly: 35.06, yearly: 304.72, url: "https://app.rivr.social/products/membership-provider",
+      number: "04", name: "Provider", segment: "Operators who host + sell", invitation: "Run events, services, and sales from one trusted presence.", capability: "Host + sell", monthly: 33, yearly: 330, url: "https://app.rivr.social/products/membership-provider",
       features: ["Everything in Host and Seller", "Paid events and offerings", "Bookings, orders, and audiences", "Rivr Pay tap-to-pay rail"],
       altitudes: [
         { label: "For your practice", title: "Run your whole practice as one thing.", copy: "Host, book, sell, and get paid without splitting your identity or audience.", outcomes: ["Combine events and offers", "Unify bookings and orders", "Build one trusted presence"] },
         { label: "In community", title: "Become a reliable community anchor.", copy: "Give people more ways to learn, gather, buy, and return.", outcomes: ["Connect learning and exchange", "Create more ways in", "Grow around your practice"] },
         { label: "Across the network", title: "Make independent work infrastructure.", copy: "Carry knowledge, care, and economic life between communities without a central gatekeeper.", outcomes: ["Support viable practices", "Connect providers across places", "Distribute knowledge and agency"] }
       ],
-      stack: [{ name: "Square Plus", cost: "$49" }, { name: "Calendly", cost: "$10" }, { name: "Luma Plus", cost: "$59" }, { name: "Upwork", cost: "0–15% freelancer fee" }, { name: "Fiverr", cost: "20% of seller earnings" }, { name: "Patreon", cost: "10% + processing" }], stackTotal: 118, savings: 82.94
+      stack: [{ name: "Square Plus", cost: "$49" }, { name: "Calendly", cost: "$10" }, { name: "Luma Plus", cost: "$59" }, { name: "Upwork", cost: "0–15% freelancer fee" }, { name: "Fiverr", cost: "20% of seller earnings" }, { name: "Patreon", cost: "10% + processing" }], stackTotal: 118, savings: 85
     },
     organization: {
-      number: "05", name: "Organization", segment: "Teams + co-ops + programs", invitation: "Coordinate the mission, the money, and the work in one place.", capability: "Coordinate + pay", monthly: 46.06, yearly: 391.72, url: "https://app.rivr.social/products/membership-organizer",
+      number: "05", name: "Organizer", segment: "Teams + co-ops + programs", invitation: "Coordinate the mission, the money, and the work in one place.", capability: "Coordinate + pay", monthly: 44, yearly: 440, url: "https://app.rivr.social/products/membership-organizer",
       features: ["Projects, roles, docs, and governance", "Contributor payouts + tax reserve", "Subgroup treasuries and project cards", "Events, commerce, analytics, API"],
       altitudes: [
         { label: "For your organization", title: "Run the mission from one context.", copy: "Coordinate roles, projects, docs, governance, treasuries, payouts, events, offerings, and project cards.", outcomes: ["Keep knowledge and decisions together", "Assign and pay the work", "Move money with purpose"] },
         { label: "In community", title: "Make responsibility and money legible.", copy: "Let members see what needs doing, how decisions happen, and where resources move.", outcomes: ["Distribute responsibility", "Clarify governance", "Build durable memory"] },
         { label: "Across the network", title: "Collaborate without merging.", copy: "Work across organizations while each one keeps its identity, authority, and context.", outcomes: ["Coordinate across boundaries", "Preserve local agency", "Build plural infrastructure"] }
       ],
-      stack: [{ name: "Asana · 5 seats", cost: "$54.95" }, { name: "Slack · 5 seats", cost: "$36.25" }, { name: "Google Workspace · 5", cost: "$35" }, { name: "Square Payroll · 5", cost: "$65" }, { name: "Square Plus", cost: "$49" }, { name: "Shopify", cost: "$29" }, { name: "Luma Plus", cost: "$59" }, { name: "Upwork + Fiverr", cost: "variable hiring fees" }], stackTotal: 328.20, savings: 282.14
+      stack: [{ name: "Asana · 5 seats", cost: "$54.95" }, { name: "Slack · 5 seats", cost: "$36.25" }, { name: "Google Workspace · 5", cost: "$35" }, { name: "Square Payroll · 5", cost: "$65" }, { name: "Square Plus", cost: "$49" }, { name: "Shopify", cost: "$29" }, { name: "Luma Plus", cost: "$59" }, { name: "Upwork + Fiverr", cost: "variable hiring fees" }], stackTotal: 328.20, savings: 284.20
     }
   };
 
@@ -166,8 +166,9 @@
   }
 
   function currentPrice(product) {
-    if (billing === "monthly") return '<span class="product-price"><b>' + money(product.monthly) + '</b><span>/ month</span></span>';
-    return '<span class="product-price"><b>' + money(product.yearly) + '</b><span>/ year</span></span>';
+    var feeMonthly = { 11: 2.80, 22: 3.21, 33: 3.62, 44: 4.03 }[product.monthly] || 0;
+    if (billing === "monthly") return '<span class="product-price"><b>' + money(product.monthly) + '</b><span>/ month</span></span><small class="fee-line">+ ' + money(feeMonthly) + '/mo processing</small>';
+    return '<span class="product-price"><b>' + money(product.yearly) + '</b><span>/ year</span></span><small class="fee-line">+ ' + money(feeMonthly * 12) + '/yr processing</small>';
   }
 
   function renderDeck() {

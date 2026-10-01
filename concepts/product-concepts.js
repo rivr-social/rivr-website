@@ -18,9 +18,9 @@
       invitation: "Belong, contribute, and find your next way in.",
       surface: "For people who want a useful relationship with the communities and places around them.",
       capability: "Participate + contribute",
-      monthly: 13.06,
-      yearly: 135.72,
-      savings: 21,
+      monthly: 11,
+      yearly: 110,
+      savings: 22,
       features: ["Community profile", "Events and groups", "Direct messaging", "Badges and project jobs"],
       url: "https://app.rivr.social/products/membership-basic",
       altitudes: [
@@ -53,9 +53,9 @@
       invitation: "Turn gatherings into repeatable community infrastructure.",
       surface: "For people whose work begins by getting the right people into the same room.",
       capability: "Ticket + convene",
-      monthly: 24.06,
-      yearly: 222.72,
-      savings: 66,
+      monthly: 22,
+      yearly: 220,
+      savings: 44,
       features: ["Paid event tickets", "RSVPs and waitlists", "Event communication", "Branding and analytics"],
       url: "https://app.rivr.social/products/membership-host",
       altitudes: [
@@ -88,9 +88,9 @@
       invitation: "Make what you offer easier to discover, trust, and buy.",
       surface: "For people who create value locally and want a marketplace shaped by relationship, not reach alone.",
       capability: "Offer + earn",
-      monthly: 24.06,
-      yearly: 207.72,
-      savings: 81,
+      monthly: 22,
+      yearly: 220,
+      savings: 44,
       features: ["Paid offerings and listings", "Storefront and inventory", "Orders and communication", "Seller analytics and verification"],
       url: "https://app.rivr.social/products/membership-seller",
       altitudes: [
@@ -123,9 +123,9 @@
       invitation: "Bring your experiences, services, and storefront into one presence.",
       surface: "For the teacher who runs workshops, the practitioner who hosts, and the business that is more than one thing.",
       capability: "Host + sell",
-      monthly: 35.06,
-      yearly: 304.72,
-      savings: 116,
+      monthly: 33,
+      yearly: 330,
+      savings: 66,
       features: ["Everything in Host and Seller", "Paid events and offerings", "Combined operating tools", "Provider analytics and verification"],
       url: "https://app.rivr.social/products/membership-provider",
       altitudes: [
@@ -153,14 +153,14 @@
       key: "organization",
       tier: "organizer",
       number: "05",
-      name: "Organization",
+      name: "Organizer",
       segment: "Teams, cooperatives, nonprofits, programs, and movements",
       invitation: "Coordinate people, programs, and paid work without flattening the mission.",
       surface: "For groups that need operational depth, shared responsibility, and a durable place to work together.",
       capability: "Coordinate + pay",
-      monthly: 46.06,
-      yearly: 391.72,
-      savings: 161,
+      monthly: 44,
+      yearly: 440,
+      savings: 88,
       features: ["Everything in Provider", "Pay people for project work", "Team roles and collaboration", "Advanced analytics and API access"],
       url: "https://app.rivr.social/products/membership-organizer",
       altitudes: [
@@ -204,11 +204,12 @@
   }
 
   function priceMarkup(product) {
-    return '<span class="product-price" data-price data-monthly="' + product.monthly.toFixed(2) + '" data-yearly="' + product.yearly.toFixed(2) + '"><strong>' + money(product.monthly) + '</strong><small>/ month</small></span>';
+    var feeMonthly = { 11: 2.80, 22: 3.21, 33: 3.62, 44: 4.03 }[product.monthly] || 0;
+    return '<span class="product-price" data-price data-monthly="' + product.monthly.toFixed(2) + '" data-yearly="' + product.yearly.toFixed(2) + '"><strong>' + money(product.monthly) + '</strong><small>/ month</small></span><small class="fee-line" data-fee data-fee-monthly="' + feeMonthly.toFixed(2) + '" data-fee-yearly="' + (feeMonthly * 12).toFixed(2) + '">+ ' + money(feeMonthly) + '/mo processing</small>';
   }
 
   function billingToggle() {
-    return '<div class="billing-toggle" aria-label="Billing period"><button type="button" data-billing="monthly" aria-pressed="true">Monthly</button><button type="button" data-billing="yearly" aria-pressed="false">Yearly <span>save up to $161</span></button></div>';
+    return '<div class="billing-toggle" aria-label="Billing period"><button type="button" data-billing="monthly" aria-pressed="true">Monthly</button><button type="button" data-billing="yearly" aria-pressed="false">Yearly <span>two months free</span></button></div><small class="fee-note">Prices shown before fees.</small>';
   }
 
   function productCard(key, mode) {
@@ -248,7 +249,7 @@
   }
 
   function catalogView() {
-    return '<section class="catalog-products" id="products" aria-labelledby="products-title"><div class="product-wrap products-heading"><div><p class="product-kicker">The product line</p><h2 id="products-title">Start with the role<br>that feels like <em>yours.</em></h2></div><div><p>These are parallel products, not a status ladder. Host and Seller are distinct specialties. Provider combines them. Organization adds the ability to coordinate and pay for shared work.</p>' + billingToggle() + '</div></div><div class="product-wrap catalog-grid">' + productOrder.map(function (key) { return productCard(key, "catalog-card"); }).join("") + '</div></section>' + comparisonTable();
+    return '<section class="catalog-products" id="products" aria-labelledby="products-title"><div class="product-wrap products-heading"><div><p class="product-kicker">The product line</p><h2 id="products-title">Start with the role<br>that feels like <em>yours.</em></h2></div><div><p>These are parallel products, not a status ladder. Host and Seller are distinct specialties. Provider combines them. Organizer adds the ability to coordinate and pay for shared work.</p>' + billingToggle() + '</div></div><div class="product-wrap catalog-grid">' + productOrder.map(function (key) { return productCard(key, "catalog-card"); }).join("") + '</div></section>' + comparisonTable();
   }
 
   function comparisonTable() {
@@ -300,6 +301,10 @@
       var value = Number(price.dataset[billing]);
       price.querySelector("strong").textContent = money(value);
       price.querySelector("small").textContent = billing === "monthly" ? "/ month" : "/ year";
+    });
+    document.querySelectorAll("[data-fee]").forEach(function (fee) {
+      var feeValue = Number(billing === "monthly" ? fee.dataset.feeMonthly : fee.dataset.feeYearly);
+      fee.textContent = "+ " + money(feeValue) + (billing === "monthly" ? "/mo processing" : "/yr processing");
     });
     document.querySelectorAll("[data-billing]").forEach(function (button) {
       button.setAttribute("aria-pressed", String(button.dataset.billing === billing));

@@ -32,13 +32,13 @@
     craigslist: { name: "Craigslist posting fees", url: "https://www.craigslist.org/about/help/faqs/payment", note: "Most posting categories are free; Craigslist charges for selected categories and geographic markets." },
     patreon: { name: "Patreon pricing", url: "https://www.patreon.com/pricing", note: "Patreon is free to start and charges 10% of creator income plus payment processing, currency conversion, payout fees, and applicable taxes." },
     stripeTreasury: { name: "Stripe Treasury", url: "https://stripe.com/treasury", note: "Stripe Treasury financial accounts can store, send, and spend funds with virtual or physical cards and no monthly storage fee or minimum balance." },
-    stripeTerminal: { name: "Stripe Tap to Pay", url: "https://docs.stripe.com/terminal/payments/setup-reader/tap-to-pay", note: "Stripe Terminal supports contactless payments on compatible phones. Rivr Pay is the native surface being designed on this built rail." },
+    stripeTerminal: { name: "Stripe Tap to Pay", url: "https://docs.stripe.com/terminal/payments/setup-reader/tap-to-pay", note: "Stripe Terminal supports contactless payments on compatible phones. Rivr Pay runs on this built rail; its native app is planned for 2027." },
     stripeIssuing: { name: "Stripe Issuing controls", url: "https://docs.stripe.com/issuing/controls/spending-controls", note: "Stripe Issuing supports virtual cards and amount, interval, category, and geography controls for project spending." }
   };
 
   var products = {
     collaborator: {
-      number: "01", name: "Collaborator", segment: "Participants and contributors", monthly: 13.06, yearly: 135.72, noSavingsClaim: true,
+      number: "01", name: "Collaborator", segment: "Participants and contributors", monthly: 11, yearly: 110, noSavingsClaim: true,
       stack: [
         { name: "Facebook", cost: 0, source: "facebook", why: "groups + events", price: "$0 base" },
         { name: "Instagram", cost: 0, source: "instagram", why: "identity + discovery", price: "$0 base" },
@@ -50,7 +50,7 @@
       thesis: "One trusted identity for finding people, groups, events, gigs, and meaningful ways to contribute.",
       caveat: "The familiar channels are free at entry, but the person, event, group, gig, and contribution record stay fragmented. Collaborator makes those relationships cumulative.",
       columns: ["Rivr Collaborator", "Facebook", "Instagram", "LinkedIn", "Meetup", "Upwork", "Fiverr"],
-      costs: ["$13.06/mo", "$0 base", "$0 base", "$0 basic", "$0 member", "0–15% freelancer fee", "20% of earnings"],
+      costs: ["$11/mo", "$0 base", "$0 base", "$0 basic", "$0 member", "0–15% freelancer fee", "20% of earnings"],
       rows: [
         ["Portable public identity", "full", "full", "full", "full", "partial", "full", "full"],
         ["Groups and communities", "full", "full", "partial", "partial", "full", "none", "none"],
@@ -65,7 +65,7 @@
       sources: ["facebook", "instagram", "linkedin", "meetup", "upworkProduct", "upworkFreelancer", "fiverrProduct", "fiverr", "fiverrClient"]
     },
     host: {
-      number: "02", name: "Host", segment: "Conveners and event makers", monthly: 24.06, yearly: 222.72,
+      number: "02", name: "Host", segment: "Conveners and event makers", monthly: 22, yearly: 220,
       stack: [
         { name: "Luma Plus", cost: 59, source: "luma", why: "ticketing + event communication" },
         { name: "Meetup Standard", cost: 14.58, source: "meetup", why: "persistent group + local discovery" },
@@ -74,7 +74,7 @@
       thesis: "Ticket, invite, check in, follow up, and grow the community around every gathering.",
       caveat: "Host connects the event to the ongoing group, participant identity, next action, and wider network instead of rebuilding the audience after every gathering.",
       columns: ["Rivr Host", "Luma", "Eventbrite", "Facebook Events", "Meetup"],
-      costs: ["$24.06/mo", "$0 + 5% · Plus $59", "$0 base + ticket fees", "$0 base", "$14.58 annual equivalent"],
+      costs: ["$22/mo", "$0 + 5% · Plus $59", "$0 base + ticket fees", "$0 base", "$14.58 annual equivalent"],
       rows: [
         ["Paid tickets and registration", "full", "full", "full", "partial", "partial"],
         ["RSVPs, waitlists, and check-in", "full", "full", "full", "partial", "full"],
@@ -86,7 +86,7 @@
       sources: ["luma", "eventbrite", "facebook", "meetup"]
     },
     seller: {
-      number: "03", name: "Seller", segment: "Makers and independent sellers", monthly: 24.06, yearly: 207.72,
+      number: "03", name: "Seller", segment: "Makers and independent sellers", monthly: 22, yearly: 220,
       stack: [
         { name: "Square Plus", cost: 49, source: "square", why: "POS + orders + customer tools" },
         { name: "Etsy", cost: 0, source: "etsy", why: "marketplace storefront", price: "6.5% + processing" },
@@ -95,7 +95,7 @@
       thesis: "Publish offerings, manage orders, reach buyers, and accept online or tap-to-pay transactions from one seller identity.",
       caveat: "Seller joins the storefront, social trust, marketplace context, communication, orders, and Rivr Pay rail without requiring a separate POS and community identity.",
       columns: ["Rivr Seller", "Etsy", "eBay", "Amazon", "Craigslist", "Shopify", "Square POS", "Instagram"],
-      costs: ["$24.06/mo", "6.5% + processing", "typically 13.6% + 40¢", "$39.99 + referral fees", "usually $0", "$29 annual + processing", "$0 Free · $49 Plus", "$0 base"],
+      costs: ["$22/mo", "6.5% + processing", "typically 13.6% + 40¢", "$39.99 + referral fees", "usually $0", "$29 annual + processing", "$0 Free · $49 Plus", "$0 base"],
       rows: [
         ["Storefront and listings", "full", "full", "full", "full", "full", "full", "full", "partial"],
         ["Marketplace discovery", "full", "full", "full", "full", "full", "partial", "partial", "full"],
@@ -108,7 +108,7 @@
       sources: ["etsy", "etsyPayments", "ebay", "amazon", "craigslist", "shopify", "square", "instagram", "stripeTerminal"]
     },
     provider: {
-      number: "04", name: "Provider", segment: "Operators who host and sell", monthly: 35.06, yearly: 304.72,
+      number: "04", name: "Provider", segment: "Operators who host and sell", monthly: 33, yearly: 330,
       stack: [
         { name: "Square Plus", cost: 49, source: "square", why: "bookings + POS + customer tools" },
         { name: "Calendly Standard", cost: 10, source: "calendly", why: "service scheduling + reminders" },
@@ -120,7 +120,7 @@
       thesis: "Run events, services, products, bookings, orders, and payments from one trusted public presence.",
       caveat: "Provider combines freelance discovery, services, scheduling, events, memberships, audience, orders, and POS in one practice. Variable Fiverr, Upwork, and Patreon fees are shown but excluded from fixed-subscription savings.",
       columns: ["Rivr Provider", "Square", "Calendly", "Upwork", "Fiverr", "Luma", "Eventbrite", "Patreon", "Instagram"],
-      costs: ["$35.06/mo", "$0 Free · $49 Plus", "$10/seat annual", "0–15% freelancer fee", "20% of earnings", "$0 + 5% · Plus $59", "$0 base + ticket fees", "10% + processing", "$0 base"],
+      costs: ["$33/mo", "$0 Free · $49 Plus", "$10/seat annual", "0–15% freelancer fee", "20% of earnings", "$0 + 5% · Plus $59", "$0 base + ticket fees", "10% + processing", "$0 base"],
       rows: [
         ["Services and bookings", "full", "full", "full", "full", "full", "partial", "partial", "partial", "partial"],
         ["Freelance marketplace discovery", "full", "partial", "none", "full", "full", "none", "none", "partial", "partial"],
@@ -135,7 +135,7 @@
       sources: ["square", "calendly", "upworkProduct", "upworkFreelancer", "upworkClient", "fiverrProduct", "fiverr", "fiverrClient", "luma", "eventbrite", "patreon", "instagram", "stripeTerminal"]
     },
     organization: {
-      number: "05", name: "Organization", segment: "Teams, co-ops, nonprofits, and programs", monthly: 46.06, yearly: 391.72,
+      number: "05", name: "Organizer", segment: "Teams, co-ops, nonprofits, and programs", monthly: 44, yearly: 440,
       stack: [
         { name: "Asana Starter · 5 seats", cost: 54.95, source: "asana", why: "projects + task ownership" },
         { name: "Slack Pro · 5 seats", cost: 36.25, source: "slack", why: "team communication" },
@@ -148,8 +148,8 @@
       ],
       thesis: "Coordinate the mission, people, projects, paid work, events, commerce, and money in one operating context.",
       caveat: "The modeled five-person stack uses familiar category leaders. Upwork and Fiverr hiring fees remain variable and are not counted in the fixed savings. Rivr adds governance, treasuries, member-controlled tax reserves, and cards by subgroup or project.",
-      columns: ["Rivr Organization", "Facebook Groups", "Discord", "Upwork", "Fiverr", "Asana", "Google Workspace", "Slack", "Square Payroll", "Square POS", "Shopify", "Patreon", "Eventbrite"],
-      costs: ["$46.06/mo", "$0 base", "$0 core", "up to 7.99% client fee", "5.5% buyer fee", "$10.99/user annual", "$7/user annual", "$7.25/user annual", "$35 + $6/person", "$0 Free · $49 Plus", "$29 annual + processing", "10% + processing", "$0 base + ticket fees"],
+      columns: ["Rivr Organizer", "Facebook Groups", "Discord", "Upwork", "Fiverr", "Asana", "Google Workspace", "Slack", "Square Payroll", "Square POS", "Shopify", "Patreon", "Eventbrite"],
+      costs: ["$44/mo", "$0 base", "$0 core", "up to 7.99% client fee", "5.5% buyer fee", "$10.99/user annual", "$7/user annual", "$7.25/user annual", "$35 + $6/person", "$0 Free · $49 Plus", "$29 annual + processing", "10% + processing", "$0 base + ticket fees"],
       rows: [
         ["Social community and messaging", "full", "full", "full", "partial", "partial", "partial", "full", "full", "partial", "partial", "partial", "full", "partial"],
         ["Roles, teams, and permissions", "full", "partial", "full", "partial", "partial", "partial", "full", "partial", "partial", "partial", "partial", "partial", "partial"],
@@ -249,8 +249,8 @@
     var saved = monthlySavings(product);
     var annual = annualSavings(product);
     var equation = product.noSavingsClaim
-      ? '<div class="savings-equation channel-equation"><div><small>Familiar channels</small><strong>4 apps</strong><span>$0 base + optional ads</span></div><b>→</b><div><small>What stays fragmented</small><strong>4 contexts</strong><span>profiles, groups, events, and work</span></div><b>vs</b><div class="save"><small>Rivr Collaborator</small><strong>' + money(product.monthly) + '</strong><span>/ month · one cumulative context</span></div></div><div class="annual-note">This tier is a consolidation comparison, not a subscription-savings claim: the familiar channels are free at entry.</div>'
-      : '<div class="savings-equation"><div><small>Recognizable app stack</small><strong>' + money(total) + '</strong><span>/ month before variable fees</span></div><b>−</b><div><small>Rivr ' + product.name + '</small><strong>' + money(product.monthly) + '</strong><span>/ month</span></div><b>=</b><div class="save"><small>Modeled savings</small><strong>' + money(saved) + '</strong><span>/ month · ' + percent(saved / total * 100) + '</span></div></div><div class="annual-note">Choose Rivr yearly and this modeled stack costs <strong>' + money(annual) + ' more per year</strong>.</div>';
+      ? '<div class="savings-equation channel-equation"><div><small>Familiar channels</small><strong>4 apps</strong><span>$0 base + optional ads</span></div><b>→</b><div><small>What stays fragmented</small><strong>4 contexts</strong><span>profiles, groups, events, and work</span></div><b>vs</b><div class="save"><small>Rivr Collaborator</small><strong>' + money(product.monthly) + '</strong><span>/ month before fees · one cumulative context</span></div></div><div class="annual-note">This tier is a consolidation comparison, not a subscription-savings claim: the familiar channels are free at entry.</div>'
+      : '<div class="savings-equation"><div><small>Recognizable app stack</small><strong>' + money(total) + '</strong><span>/ month before variable fees</span></div><b>−</b><div><small>Rivr ' + product.name + '</small><strong>' + money(product.monthly) + '</strong><span>/ month before fees</span></div><b>=</b><div class="save"><small>Modeled savings</small><strong>' + money(saved) + '</strong><span>/ month · ' + percent(saved / total * 100) + '</span></div></div><div class="annual-note">Choose Rivr yearly and this modeled stack costs <strong>' + money(annual) + ' more per year</strong>.</div>';
     return '<section class="savings-panel" aria-labelledby="savings-title"><div class="savings-copy"><p class="eyebrow">The apps you would actually recognize</p><h2 id="savings-title">' + product.name + ' vs. assembling the parts</h2><p>' + product.thesis + '</p></div>' + equation + '<div class="stack-list">' + product.stack.map(function (item) {
       return '<article><div>' + brandLabel(item.name) + '<span>' + item.why + '</span></div><div><b>' + (item.price || money(item.cost)) + '</b>' + (item.price ? '' : '<small>/mo</small>') + sourceLink(item.source, true) + '</div></article>';
     }).join("") + '</div><aside class="truth-note"><strong>Why consolidation matters</strong><p>' + product.caveat + '</p></aside></section>';
@@ -268,7 +268,7 @@
   function moneyLayer(productKey) {
     if (["seller", "provider", "organization"].indexOf(productKey) === -1) return "";
     var cards = [
-      '<article><span>01</span><div><small>Accept</small><h3>Rivr Pay</h3><p>Turn a compatible phone into a contactless point of sale. The Stripe Terminal settlement and fee rail is built; the dedicated native Rivr Pay experience is now being designed.</p></div></article>',
+      '<article><span>01</span><div><small>Accept</small><h3>Rivr Pay</h3><p>Turn a compatible phone into a contactless point of sale. The Stripe Terminal settlement and fee rail is built; the native Rivr Pay app is planned for 2027.</p></div></article>',
       '<article><span>02</span><div><small>Settle</small><h3>Connected payouts</h3><p>Online and in-person payments settle through the same connected seller account, keeping the offering, buyer, receipt, and payout in one operating context.</p></div></article>'
     ];
     if (productKey === "organization") {
@@ -318,7 +318,7 @@
     var payroll = 35 + team * 6;
     var commerceAndEvents = 49 + 29 + 59;
     var standardStack = workAndKnowledge + payroll + commerceAndEvents;
-    return '<div class="scenario-cards">' + scenarioCard("Rivr Organization", product.monthly, "Social community, docs, governance, projects, paid work, treasuries, project cards, Rivr Pay, events, offerings, analytics, and API access.", "rivr") + scenarioCard("Asana + Slack + Workspace", workAndKnowledge, team + " annual-billed seats for projects, chat, email, docs, and shared files.") + scenarioCard("Square Payroll", payroll, "$35 base + $6 × " + team + " people for full-service payroll and payroll-tax filing.") + scenarioCard("Square + Shopify + Luma", commerceAndEvents, "POS/customer tools, storefront/inventory, and event ticketing before processing or sales fees.") + scenarioCard("Upwork + Fiverr hiring", "variable", "Upwork clients pay up to 7.99% and Fiverr buyers pay 5.5% plus a possible small-order fee; neither is counted in fixed savings.") + scenarioCard("Recognizable full stack", standardStack, money(standardStack - product.monthly) + " more each month than Rivr, before freelance-marketplace and transaction fees.") + '</div>';
+    return '<div class="scenario-cards">' + scenarioCard("Rivr Organizer", product.monthly, "Social community, docs, governance, projects, paid work, treasuries, project cards, Rivr Pay, events, offerings, analytics, and API access.", "rivr") + scenarioCard("Asana + Slack + Workspace", workAndKnowledge, team + " annual-billed seats for projects, chat, email, docs, and shared files.") + scenarioCard("Square Payroll", payroll, "$35 base + $6 × " + team + " people for full-service payroll and payroll-tax filing.") + scenarioCard("Square + Shopify + Luma", commerceAndEvents, "POS/customer tools, storefront/inventory, and event ticketing before processing or sales fees.") + scenarioCard("Upwork + Fiverr hiring", "variable", "Upwork clients pay up to 7.99% and Fiverr buyers pay 5.5% plus a possible small-order fee; neither is counted in fixed savings.") + scenarioCard("Recognizable full stack", standardStack, money(standardStack - product.monthly) + " more each month than Rivr, before freelance-marketplace and transaction fees.") + '</div>';
   }
 
   function scenarioSection(productKey, product) {

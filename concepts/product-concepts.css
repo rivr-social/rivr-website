@@ -104,6 +104,7 @@
   .billing-toggle button[aria-pressed="true"] { color: #05292b; background: var(--aqua); }
   .concept-catalog .billing-toggle button[aria-pressed="true"] { color: #fff; background: var(--teal-800); }
   .billing-toggle span { margin-left: 5px; }
+  .fee-note { display: block; margin-top: 8px; color: var(--muted); font-size: .66rem; }
   .product-price { display: flex; align-items: baseline; gap: 6px; }
   .product-price strong { font-size: 1.7rem; font-weight: 580; letter-spacing: -.045em; }
   .product-price small { color: var(--muted); font-size: .68rem; }
@@ -358,3 +359,5 @@
     *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .001ms !important; animation-duration: .001ms !important; animation-iteration-count: 1 !important; }
   }
 }
+
+.fee-line{display:block;font-size:.78em;opacity:.72;margin-top:.15em;letter-spacing:.01em}

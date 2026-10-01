@@ -455,3 +455,5 @@
     .flow-line, .flow-node { --line-reveal: 1 !important; --node-reveal: 1 !important; }
   }
 }
+
+.fee-line{display:block;font-size:.78em;opacity:.72;margin-top:.15em;letter-spacing:.01em}
