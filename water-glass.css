@@ -1,6 +1,101 @@
 /* Water photos + smoked turquoise glass (Cameron, 2026-10-02, trial).
-   Reversible: remove this file and the one <link> to it in each page (one commit). */
-html body { background: #3e5853 url(/assets/bg/mid.jpg) center / cover fixed no-repeat; }
-.liquid-glass, .dark .liquid-glass, .liquid-glass-shell, .dark .liquid-glass-shell { --glass-tint-color: rgba(1, 24, 24, .62); --glass-shine-light: rgba(255,255,255,.05); --glass-shine-dark: rgba(255,255,255,.02); }
-.site-header.scrolled { --glass-tint-color: rgba(1, 24, 24, .86); }
-.liquid-glass-effect, .liquid-glass-distortion, .liquid-glass-effect-shell, .liquid-glass-effect-strong { -webkit-backdrop-filter: blur(10px) saturate(1.2); backdrop-filter: blur(10px) saturate(1.2); }
+   Reversible: remove this file and the one <link> to it in each page (one commit).
+   Every rule here is unlayered, so it wins over the layered rules in style.css and pages.css
+   without touching them. Reference look: the investor site's Regular mode. */
+
+:root {
+  --wg-photo: url(/assets/bg/mid.jpg);
+  --wg-photo-color: #3e5853;
+  --wg-tint: rgba(1, 24, 24, .90);          /* panels on the water photo */
+  --wg-tint-on-photo: rgba(1, 24, 24, .72); /* glass that sits on a section's own photograph */
+  --wg-tint-header: rgba(1, 24, 24, .80);
+  --wg-tint-solid: rgb(7, 30, 30);          /* what --wg-tint reads as over the photo: sticky table cells */
+  --wg-blur: blur(10px) saturate(1.2);
+  --wg-border: rgba(255, 255, 255, .16);
+  --wg-panel-pad: clamp(24px, 3.2vw, 44px);
+}
+
+/* Ground: the fixed water photo. site.js mounts .crystalline-field on every page; it becomes the photo
+   layer (a fixed element, so iOS Safari keeps it fixed). The body carries it too for no-JS visits. */
+html body { background: var(--wg-photo-color) var(--wg-photo) center / cover fixed no-repeat; }
+.crystalline-field { inset: 0; filter: none; background: var(--wg-photo-color) var(--wg-photo) center / cover no-repeat; }
+.crystalline-field i { display: none; }
+
+/* Glass surfaces: the hub's liquid-glass layers with the investor site's smoked turquoise tint. */
+.liquid-glass, .dark .liquid-glass, .liquid-glass-shell, .dark .liquid-glass-shell { --glass-tint-color: var(--wg-tint); --glass-shine-light: rgba(255,255,255,.06); --glass-shine-dark: rgba(255,255,255,.02); }
+.liquid-glass-effect, .liquid-glass-distortion, .liquid-glass-effect-shell, .liquid-glass-effect-strong { -webkit-backdrop-filter: var(--wg-blur); backdrop-filter: var(--wg-blur); }
+.quote-figure blockquote, .subscribe-card, .context-glass { --glass-tint-color: var(--wg-tint-on-photo); }
+
+/* Smoked panel for text blocks that have no glass markup of their own; same tint, blur and border. */
+.product-section .split-heading,
+.context-section .split-heading,
+.page-section .split-heading,
+.page-section .section-head,
+.page-section .prose:not(.section-wrap),
+.money-intro,
+.comparison-heading,
+.closing-content {
+  padding: var(--wg-panel-pad);
+  background: var(--wg-tint);
+  border: 1px solid var(--wg-border);
+  border-radius: var(--card-radius, 16px);
+  -webkit-backdrop-filter: var(--wg-blur);
+  backdrop-filter: var(--wg-blur);
+}
+
+/* Outline buttons can sit straight on the photo (e.g. "Learn more about features"): give them smoke. */
+.button-glass, .button-outline { background: var(--wg-tint-on-photo); border-color: var(--line-strong); }
+
+/* Header and mobile menu. */
+.site-header { --glass-tint-color: var(--wg-tint-header); border-color: var(--wg-border); }
+.site-header.scrolled { --glass-tint-color: var(--wg-tint); }
+@media (max-width: 1080px) {
+  .primary-nav { background: rgba(1, 24, 24, .96); border-color: var(--wg-border); -webkit-backdrop-filter: var(--wg-blur); backdrop-filter: var(--wg-blur); }
+}
+
+/* Sections that painted their own ground: let the photo through. Heroes, the network section,
+   the CTA band and every photo card keep their own photography. */
+.page-section.is-deep { background: transparent; border-block: 0; }
+.product-section, .comparison-section, .money-section, .flow-section { background: transparent; }
+.money-backdrop { display: none; }
+
+/* Products: the product hue sits above the smoked tint so each card keeps its colour. */
+.product-card::before { z-index: 1; }
+
+/* Flow: the sticky stage becomes a smoked veil over the photo, with the travelling glow kept. */
+.flow-sticky::before { opacity: 1; background: radial-gradient(circle at calc(24% + var(--flow-progress) * 52%) 48%, rgba(72,190,166,.22), transparent 34%), rgba(1, 24, 24, .74); }
+
+/* Comparison table: sticky first column and header need an opaque cell that matches the panel. */
+.home-matrix thead th, .home-matrix tbody th { background: var(--wg-tint-solid); }
+
+/* Network principles: glass on the section's own photograph. */
+.network-principles article { background: var(--wg-tint-on-photo); border-color: var(--wg-border); -webkit-backdrop-filter: var(--wg-blur); backdrop-filter: var(--wg-blur); }
+
+/* Cream sections (home context grid, vision) turn into dark-glass sections: light ink again. */
+.context-section, .page-section.is-cream { color: var(--ink); background: transparent; }
+.context-section .eyebrow, .context-section em, .is-cream .eyebrow, .is-cream em { color: var(--mint); }
+.context-section .split-heading > p { color: var(--ink-muted); }
+.is-cream .section-head > p:not(.eyebrow), .is-cream .prose p { color: var(--ink-soft); }
+.is-cream .button-glass { color: var(--ink); background: rgba(255,255,255,.04); border-color: var(--line-strong); }
+.is-cream .glass-card { --glass-tint-color: var(--wg-tint); color: var(--ink); border-color: var(--line); }
+.is-cream .media-frame, .context-glass { border-color: var(--wg-border); }
+
+/* Closing invitation: was a bright mint-to-gold block with dark ink; now a smoked panel on the photo. */
+.closing-section { color: var(--ink); background: transparent; }
+.closing-symbol { filter: invert(1); opacity: .06; }
+.closing-content .eyebrow { color: var(--mint); }
+.closing-content > p:not(.eyebrow) { color: var(--ink-soft); }
+.closing-content .button-outline { color: var(--ink); background: rgba(255,255,255,.04); border-color: var(--line-strong); }
+
+/* Footer: full-width smoked glass, the same surface as the header. */
+.site-footer { background: var(--wg-tint); border-top-color: var(--wg-border); -webkit-backdrop-filter: var(--wg-blur); backdrop-filter: var(--wg-blur); }
+
+/* Product dialog. */
+.product-dialog { background: rgba(1, 24, 24, .94); border-color: var(--wg-border); -webkit-backdrop-filter: var(--wg-blur); backdrop-filter: var(--wg-blur); }
+.product-dialog::backdrop { background: rgba(1, 16, 16, .66); }
+.dialog-aside { background: color-mix(in srgb, var(--product) 24%, rgb(1, 24, 24)); }
+
+@media (max-width: 760px) {
+  :root { --wg-panel-pad: 22px; }
+  .closing-content { padding: 28px 22px; }
+}
