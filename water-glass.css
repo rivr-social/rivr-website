@@ -1,0 +1,6 @@
+/* Water photos + smoked turquoise glass (Cameron, 2026-10-02, trial).
+   Reversible: remove this file and the one <link> to it in each page (one commit). */
+html body { background: #3e5853 url(/assets/bg/mid.jpg) center / cover fixed no-repeat; }
+.liquid-glass, .dark .liquid-glass, .liquid-glass-shell, .dark .liquid-glass-shell { --glass-tint-color: rgba(1, 24, 24, .62); --glass-shine-light: rgba(255,255,255,.05); --glass-shine-dark: rgba(255,255,255,.02); }
+.site-header.scrolled { --glass-tint-color: rgba(1, 24, 24, .86); }
+.liquid-glass-effect, .liquid-glass-distortion, .liquid-glass-effect-shell, .liquid-glass-effect-strong { -webkit-backdrop-filter: blur(10px) saturate(1.2); backdrop-filter: blur(10px) saturate(1.2); }
