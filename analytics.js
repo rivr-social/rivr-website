@@ -1,7 +1,7 @@
 /* Rivr public site: Google Analytics 4. One id for the whole site; blank = nothing loads.
    Honours Global Privacy Control and Do Not Track: with either on, nothing is sent. */
 (function () {
-  var MEASUREMENT_ID = "";
+  var MEASUREMENT_ID = "G-TQPNFQ0P24";
   if (!/^G-[A-Z0-9]{4,20}$/.test(MEASUREMENT_ID)) return;
   if (navigator.globalPrivacyControl === true || navigator.doNotTrack === "1") return;
   window.dataLayer = window.dataLayer || [];
