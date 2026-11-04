@@ -222,7 +222,7 @@
     if (!target) return;
     var p = products[comparisonSelected];
     var matrix = comparisonMatrices[comparisonSelected];
-    var annual = p.stackTotal * 12 - p.yearly;
+    var annual = p.savings * 12;
     var signal = p.savings === null ? '<div class="savings-number"><span>Familiar channel cost</span><strong>$0 base</strong></div>' : '<div class="savings-number"><span>Modeled monthly savings</span><strong>' + money(p.savings) + '</strong></div>';
     var equation = p.savings === null
       ? '<div class="compare-equation"><div><small>Separate channels</small><strong>4 apps</strong></div><b>→</b><div><small>Rivr Collaborator</small><strong>' + money(p.monthly) + '</strong></div><b>=</b><div class="save"><small>Connected result</small><strong>1 context</strong></div></div>'

@@ -82,7 +82,7 @@
       '<p>Social coordination infrastructure for people, communities, and places.</p>' +
       '<h3>Stay in touch.</h3><p>We can only do it together.</p><a class="footer-mail" href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a></div>' +
       '<nav class="footer-columns" aria-label="Footer navigation">' + FOOTER_GROUPS.map(footerGroup).join("") + '</nav>' +
-      '<div class="footer-meta"><span>© ' + new Date().getFullYear() + ' Rivr Social · Original site design by Kathena Marie Rose · Photography by True to Essence</span><span>Flow local. Connect global.</span></div>' +
+      '<div class="footer-meta"><span>© ' + new Date().getFullYear() + ' Rivr Social · Original site design by Kathleen Marie Rose · Photography by True to Essence</span><span>Flow local. Connect global.</span></div>' +
       '</footer>';
   }
 
